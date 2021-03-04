@@ -1,5 +1,41 @@
 # 미션 - 자동차 경주 게임
 
+## 📋 기능 구현 목록
+- 사용자 입력 요구문 출력
+- 사용자 입력 
+  - 예외 처리
+  - 플레이어 생성
+  
+- 경주 게임 실행
+  - 무작위 수 생성
+  - 4이상 인지 비교
+  - 1초 간격두고 라운드 결과 출력
+  
+- 우승자 판별
+  - 우승자 출력
+  
+## 🚬 클래스와 메서드?
+- Application
+- Input
+  - inputName
+  - inputNumber
+- io.Printer
+  - printMessage
+- domain.GamePlayer
+  - gameStart
+  - check 4
+- Generator
+  - generateRandomNumber
+- Car
+  - getPosition
+  setter없이 해야함
+- Validate
+  - [a-z][0-9], 아니면 예외
+  - 숫자 아니면 예외
+- Message
+  - 하면서 만들기 
+
+
 ## 🚀 기능 요구사항
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
