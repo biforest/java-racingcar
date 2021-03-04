@@ -16,19 +16,20 @@
   
 ## 🚬 클래스와 메서드?
 - Application
-- Input
-  - inputName
-  - inputNumber
-- io.Printer
+- Receiver
+  - receiveLine
+  - receiveName
+  - receiveNumber
+- Printer
   - printMessage
-- domain.GamePlayer
-  - gameStart
-  - check 4
+- GamePlayer
+  - run
 - Generator
   - generateRandomNumber
 - Car
   - getPosition
-  setter없이 해야함
+  - judgeMove
+    - check 4
 - Validate
   - [a-z][0-9], 아니면 예외
   - 숫자 아니면 예외
