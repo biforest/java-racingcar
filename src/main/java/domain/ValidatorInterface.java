@@ -5,5 +5,18 @@ public interface ValidatorInterface {
 
     boolean validateNumber(String s);
 
-    String callErrorMessage(String key);
+
+    boolean inputNothing(String s);
+
+    boolean inputCommaInARow(String s);
+
+    boolean startWithComma(String s);
+
+    boolean endWithComma(String s);
+
+    boolean inputCharactersOtherThanName(String s);
+
+    boolean inputSameName(String s);
+
+    boolean over5Characters(String s);
 }
