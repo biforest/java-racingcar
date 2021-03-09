@@ -17,24 +17,34 @@
 ## 🚬 클래스와 메서드?
 - Application
 - Receiver
-  - receiveLine
   - receiveName
   - receiveNumber
 - Printer
   - printMessage
 - GamePlayer
   - run
+  - judgeToMove
+  - makeArrayAfterGettingName
+  - makeCountAfterGettingNumber
+  - launchAllRound
+  - checkWhoIsWinner
 - Generator
   - generateRandomNumber
 - Car
   - getPosition
-  - judgeMove
-    - check 4
+  - getName
+  - moveForward
 - Validate
-  - [a-z][0-9], 아니면 예외
-  - 숫자 아니면 예외
+  - validateName(s)
+    - inputNothing(s)
+    - inputCommaInARow(s)
+    - inputCharactersOtherThanName(s)
+    - startWithComma(s)
+    - endWithComma(s)
+    - over5Characters(s)
+    - inputSameName(s))
+  - validateNumber(s)
 - Message
-  - 하면서 만들기 
 
 
 ## 🚀 기능 요구사항
