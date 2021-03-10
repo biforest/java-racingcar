@@ -9,21 +9,38 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReceiverTest {
     @Test
-    void receiveLineTest() {
-        String result = rc.receiveLine();
-        // pobi,crong,honux
-        assertThat(result).isEqualTo("pobi,crong,honux");
-    }
-
-    @Test
     void receiveNameTest() {
-        String[] result = rc.receiveName("pobi,crong,honux");
-        assertThat(result).isEqualTo(Arrays.asList("pobi", "crong", "honux"));
+        String input = "kim,park,song";
+        InputStream stdin = System.in;
+        String[] result;
+
+        try {
+            System.setIn(new ByteArrayInputStream(input.getBytes()));
+            Receiver receiver = new Receiver();
+            result = receiver.receiveName();
+        } finally {
+            System.setIn(stdin);
+        }
+
+        String[] expected = {"kim", "park", "song"};
+        assertThat(expected).isEqualTo(result);
     }
 
     @Test
     void receiveNumberTest() {
-        int result = rc.receiveNumber("3");
-        assertThat(result).isEqualTo(3);
+        String input = "5";
+        InputStream stdin = System.in;
+        int result;
+
+        try {
+            System.setIn(new ByteArrayInputStream(input.getBytes()));
+            Receiver receiver = new Receiver();
+            result = receiver.receiveNumber();
+        } finally {
+            System.setIn(stdin);
+        }
+
+        int expected = 5;
+        assertThat(expected).isEqualTo(result);
     }
 }
