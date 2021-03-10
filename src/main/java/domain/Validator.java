@@ -3,9 +3,7 @@ package domain;
 import io.Printer;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 public class Validator implements ValidatorInterface {
@@ -26,7 +24,7 @@ public class Validator implements ValidatorInterface {
                 && inputCharactersOtherThanName(s)
                 && startWithComma(s)
                 && endWithComma(s)
-                && over5Characters(s)
+                && this.overSizeCharacters(s)
                 && inputSameName(s);
     }
 
@@ -99,7 +97,7 @@ public class Validator implements ValidatorInterface {
         String[] splitName = s.split(",");
         for (String i : splitName)
             if (i.length() > MAX_NAME_SIZE) {
-                printer.printExceptionMessage("OVER_5_CHARACTERS");
+                printer.printExceptionMessage("OVER_SIZE_CHARACTERS");
                 return false;
             }
         return true;

@@ -18,5 +18,5 @@ public interface ValidatorInterface {
 
     boolean inputSameName(String s);
 
-    boolean over5Characters(String s);
+    boolean overSizeCharacters(String s);
 }
