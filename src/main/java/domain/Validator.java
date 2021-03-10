@@ -93,7 +93,7 @@ public class Validator implements ValidatorInterface {
     }
 
     @Override
-    public boolean over5Characters(String s) {
+    public boolean overSizeCharacters(String s) {
         String[] splitName = s.split(",");
         for (String i : splitName)
             if (i.length() > MAX_NAME_SIZE) {

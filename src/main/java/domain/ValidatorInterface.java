@@ -5,7 +5,6 @@ public interface ValidatorInterface {
 
     boolean validateNumber(String s);
 
-
     boolean inputNothing(String s);
 
     boolean inputCommaInARow(String s);
