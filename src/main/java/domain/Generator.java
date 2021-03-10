@@ -3,9 +3,7 @@ package domain;
 public class Generator {
     private int MAX_LIMIT_NUMBER = 10; //default value
 
-    Generator() {
-
-    }
+    Generator() {}
 
     Generator(int maxNum) {
         this.MAX_LIMIT_NUMBER = maxNum;
