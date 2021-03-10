@@ -24,7 +24,7 @@ public class Message implements MessageInterface {
         exceptionMessageList.put("START_WITH_COMMA", "쉼표(,)로 시작합니다.");
         exceptionMessageList.put("END_WITH_COMMA", "쉼표(,)로 끝납니다.");
         exceptionMessageList.put("INPUT_SAME_NAME", "같은 이름이 입력되었습니다.");
-        exceptionMessageList.put("OVER_5_CHARACTERS", "이름이 5자 이상입니다.");
+        exceptionMessageList.put("OVER_SIZE_CHARACTERS", "이름이 5자 이상입니다.");
         exceptionMessageList.put("INPUT_CHARACTERS_OTHER_THAN_DIGIT", "숫자 이외의 다른 문자가 입력되었습니다.");
     }
 

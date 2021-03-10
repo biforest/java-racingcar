@@ -7,7 +7,7 @@ public interface MessageInterface {
     Map<String, String> generalMessageList = new HashMap<String, String>();
     Map<String, String> exceptionMessageList = new HashMap<String, String>();
 
-    private void genralMessageList() {
+    private void generalMessageList() {
         generalMessageList.put("INPUT_NAMEOFCAR", "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         generalMessageList.put("INPUT_COUNT", "시도할 회수는 몇회인가요?");
         generalMessageList.put("OPERATION_RESULT", "실행 결과");
@@ -20,7 +20,7 @@ public interface MessageInterface {
         exceptionMessageList.put("END_WITH_COMMA", "쉼표(,)로 끝납니다.");
         exceptionMessageList.put("INPUT_CHARACTERS_OTHER_THAN_NAME", "영어와 쉼표(,) 이외의 다른 문자가 입력되었습니다.");
         exceptionMessageList.put("INPUT_SAME_NAME", "같은 이름이 입력되었습니다.");
-        exceptionMessageList.put("OVER_5_CHARACTERS", "이름이 5자 이상입니다.");
+        exceptionMessageList.put("OVER_SIZE_CHARACTERS", "이름이 5자 이상입니다.");
         exceptionMessageList.put("INPUT_CHARACTERS_OTHER_THAN_DIGIT", "숫자 이외의 다른 문자가 입력되었습니다.");
     }
 
