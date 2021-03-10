@@ -1,23 +1,13 @@
 package io;
 
-import io.Receiver;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class ReceiverTest {
-
-    Receiver rc;
-
-    @BeforeEach
-    void setUp() {
-        rc = new Receiver();
-    }
-
     @Test
     void receiveLineTest() {
         String result = rc.receiveLine();
