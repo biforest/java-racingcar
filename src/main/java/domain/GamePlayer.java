@@ -41,14 +41,18 @@ public class GamePlayer {
     }
 
     public void launchAllRound(Car[] cars, int countRound) {
-        System.out.println("실행 결과");
-
         for (int i = 0; i < countRound; i++) {
             for (Car j : cars) {
                 judgeToMove(j, generator.generateRandomNumber());
-                System.out.println(j.getName() + ":" + j.getPosition());
+                printer.printProgressWithSymbol(j.getName(), j.getPosition());
             }
-            System.out.println("\n");
+            printer.printGeneralMessage("DEFAULT_SPACE");
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -74,13 +78,11 @@ public class GamePlayer {
     public void run() {
         Car[] cars = makeArrayAfterGettingName();
         int countRound = makeCountAfterGettingNumber();
-        List<Car> winner;
 
+        printer.printGeneralMessage("OPERATION_RESULT");
         launchAllRound(cars, countRound);
-        winner = checkWhoIsWinner(cars);
 
-        for(Car i : winner)
-            System.out.println(i.getName());
-
+        List<Car> winner = checkWhoIsWinner(cars);
+        printer.printWinner(printer.makeWinnerToString(winner));
     }
 }
