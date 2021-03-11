@@ -56,4 +56,8 @@ public class RacingCarGame {
             printResultPerRound();
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
