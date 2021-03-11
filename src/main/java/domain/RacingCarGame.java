@@ -16,4 +16,11 @@ public class RacingCarGame {
     private int makeRandomValue() {
         return RandomUtils.nextInt(0, 9);
     }
+
+    private void movePosition(int i) {
+        int randomValue = makeRandomValue();
+        if (randomValue >= 4) {
+            cars.get(i).moveForward();
+        }
+    }
 }
