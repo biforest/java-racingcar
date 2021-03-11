@@ -6,18 +6,20 @@ import java.util.stream.Collectors;
 
 public class CarFactory {
     private final String[] carNames;
-    private int numberOfCars;
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public CarFactory(String[] carNames) {
         this.carNames = carNames;
-        numberOfCars = carNames.length;
-        createCars();
+        cars = createCars();
     }
 
-    private void createCars() {
-        cars = Arrays.stream(carNames)
+    private List<Car> createCars() {
+        return Arrays.stream(carNames)
             .map(carName -> new Car(carName))
             .collect(Collectors.toList());
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
