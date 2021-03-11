@@ -84,10 +84,10 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 - [x] 입력 - 자동차 이름, 횟수
   - [x] 자동차 이름 글자수 예외
 - [x] 자동차: 이름, 위치
-- [ ] 경주 게임
+- [x] 경주 게임
   - [x] 각 자동차의 0-9 사이 랜덤값 구하기
   - [x] 자동차들 위치 이동 - 전진 or 멈춤
-  - [ ] 실행 결과 출력
+  - [x] 실행 - 결과 출력
 - [ ] 최종 우승자 구하기 및 출력
 
 ### 예외
