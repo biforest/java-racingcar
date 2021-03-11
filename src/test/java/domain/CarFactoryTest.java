@@ -1,32 +1,23 @@
 package domain;
 
-import static org.assertj.core.api.Assertions.*;
-
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CarFactoryTest {
+public class CarFactoryTest {
 
     private CarFactory carFactory;
-
-    @BeforeEach
-    void setUp() {
-    }
+    private String input = " lee, chan, gyu ";
 
     @Test
-    public void createCarFactory() throws Exception {
-        //given
-        String[] carNames = {"green", "tea", "star"};
+    public void 차를_생성한다() throws Exception {
+        carFactory = new CarFactory(input);
 
-        //when
-        carFactory = new CarFactory(carNames);
         List<Car> cars = carFactory.getCars();
 
-        //then
-        assertThat("green").isEqualTo(cars.get(0).getName());
-        assertThat("tea").isEqualTo(cars.get(1).getName());
-        assertThat("star").isEqualTo(cars.get(2).getName());
+        Assertions.assertThat(cars.get(0).getName()).isEqualTo("lee");
+        Assertions.assertThat(cars.get(1).getName()).isEqualTo("chan");
+        Assertions.assertThat(cars.get(2).getName()).isEqualTo("gyu");
     }
 }

@@ -1,22 +1,31 @@
 package domain;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CarFactory {
-    private final String[] carNames;
+    public static final String COMMA = ",";
+    public static final String BLANK = " ";
     private final List<Car> cars;
+    private final String[] carNames;
 
-    public CarFactory(String[] carNames) {
-        this.carNames = carNames;
+    public CarFactory(String input) {
+        this.carNames = splitCarNames(input);
         cars = createCars();
     }
 
+    private String[] splitCarNames(String input) {
+        String s = input.replaceAll(BLANK, "");
+        return s.split(COMMA);
+    }
+
     private List<Car> createCars() {
-        return Arrays.stream(carNames)
-            .map(carName -> new Car(carName))
-            .collect(Collectors.toList());
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+
+        return cars;
     }
 
     public List<Car> getCars() {

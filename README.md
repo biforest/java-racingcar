@@ -88,7 +88,10 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
   - [x] 각 자동차의 0-9 사이 랜덤값 구하기
   - [x] 자동차들 위치 이동 - 전진 or 멈춤
   - [x] 실행 - 결과 출력
-- [ ] 최종 우승자 구하기 및 출력
+- [x] 최종 우승자 구하기 및 출력
 
 ### 예외
-- 자동차 이름은 5글자 이하만 가능
+
+- 자동차 이름
+  - 5글자 이하만 가능
+  - 공백일 경우
