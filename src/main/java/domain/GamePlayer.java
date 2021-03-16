@@ -8,15 +8,9 @@ import java.util.List;
 
 public class GamePlayer {
     private final int WINNER_CONDITION = 4;
-    private Printer printer;
-    private Receiver receiver;
-    private Generator generator;
-
-    public GamePlayer() {
-        this.printer = new Printer();
-        this.receiver = new Receiver();
-        this.generator = new Generator();
-    }
+    private Printer printer = new Printer();
+    private Receiver receiver = new Receiver();
+    private Generator generator= new Generator();
 
     public void judgeToMove(Car car, int randomNumber) {
         if (randomNumber >= WINNER_CONDITION)
