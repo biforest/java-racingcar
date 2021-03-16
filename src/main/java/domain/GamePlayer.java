@@ -35,9 +35,9 @@ public class GamePlayer {
 
     public void launchAllRound(Car[] cars, int countRound) {
         for (int i = 0; i < countRound; i++) {
-            for (Car j : cars) {
-                judgeToMove(j, generator.generateRandomNumber());
-                printer.printProgressWithSymbol(j.getName(), j.getPosition());
+            for (Car car : cars) {
+                judgeToMove(car, generator.generateRandomNumber());
+                printer.printProgressWithSymbol(car.getName(), car.getPosition());
             }
             printer.printGeneralMessage("DEFAULT_SPACE");
 
@@ -53,15 +53,15 @@ public class GamePlayer {
         List<Car> result = new ArrayList<>();
         int maxNumber = 0;
 
-        for (Car i : cars) {
-            if(i.getPosition() == maxNumber){
-                result.add(i);
+        for (Car car : cars) {
+            if(car.getPosition() == maxNumber){
+                result.add(car);
                 continue;
             }
-            if (i.getPosition() > maxNumber) {
-                maxNumber = i.getPosition();
+            if (car.getPosition() > maxNumber) {
+                maxNumber = car.getPosition();
                 result.clear();
-                result.add(i);
+                result.add(car);
             }
         }
 
