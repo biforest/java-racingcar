@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer {
+    private final int WINNER_CONDITION = 4;
     private Printer printer;
     private Receiver receiver;
     private Generator generator;
@@ -16,8 +17,6 @@ public class GamePlayer {
         this.receiver = new Receiver();
         this.generator = new Generator();
     }
-
-    private final int WINNER_CONDITION = 4;
 
     public void judgeToMove(Car car, int randomNumber) {
         if (randomNumber >= WINNER_CONDITION)
