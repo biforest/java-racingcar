@@ -14,7 +14,7 @@ public class GamePlayer {
     public GamePlayer() {
         this.printer = new Printer();
         this.receiver = new Receiver();
-        this.generator = new Generator(10);
+        this.generator = new Generator();
     }
 
     private final int WINNER_CONDITION = 4;
