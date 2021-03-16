@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 
 public class Validator implements ValidatorInterface {
     private static final int MAX_NAME_SIZE = 5;
-    private static final String valiNumber = "^[0-9]+$";
-    private static final String commaInARow = "^(,,)+$";
-    private static final String characterOTN = "^[a-zA-Z,]+$";
+    private static final String ONLY_NUMBER = "^[0-9]+$";
+    private static final String COMMA_IN_A_ROW = "^(,,)+$";
+    private static final String CHARACTER_OTHER_THAN_NAME = "^[a-zA-Z,]+$";
     Printer printer;
 
     public Validator() {
@@ -30,7 +30,7 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean validateNumber(String s) {
-        return s.matches(valiNumber);
+        return s.matches(ONLY_NUMBER);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputCommaInARow(String s) {
-        if (Pattern.matches(commaInARow, s)) {
+        if (Pattern.matches(COMMA_IN_A_ROW, s)) {
             printer.printExceptionMessage("INPUT_COMMA_IN_A_ROW");
             return false;
         }
@@ -71,7 +71,7 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputCharactersOtherThanName(String s) {
-        if (!Pattern.matches(characterOTN, s)) {
+        if (!Pattern.matches(CHARACTER_OTHER_THAN_NAME, s)) {
             printer.printExceptionMessage("INPUT_CHARACTERS_OTHER_THAN_NAME");
             return false;
         }
