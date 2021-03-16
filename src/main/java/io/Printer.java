@@ -5,7 +5,7 @@ import domain.Car;
 import java.util.List;
 
 public class Printer {
-    Message message = new Message();
+    private Message message = new Message();
 
     private static String DEFAULT_SYMBOL = "-";
 
