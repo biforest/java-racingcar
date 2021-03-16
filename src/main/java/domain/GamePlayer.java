@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer {
-    Printer printer;
-    Receiver receiver;
-    Generator generator;
+    private Printer printer;
+    private Receiver receiver;
+    private Generator generator;
 
     public GamePlayer() {
         this.printer = new Printer();
@@ -51,7 +51,7 @@ public class GamePlayer {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                e.printStackTrace(); 
             }
         }
     }
