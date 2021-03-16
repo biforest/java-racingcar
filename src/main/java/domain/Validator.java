@@ -10,18 +10,15 @@ public class Validator implements ValidatorInterface {
     private static final int MAX_NAME_SIZE = 5;
     private static final String ONLY_NUMBER = "^[0-9]+$";
     private static final String COMMA_IN_A_ROW = "^(,,)+$";
-    private static final String CHARACTER_OTHER_THAN_NAME = "^[a-zA-Z,]+$";
-    Printer printer;
+    private static final String OTHER_THAN_CHARACTER = "^[a-zA-Z,]+$";
 
-    public Validator() {
-        printer = new Printer();
-    }
+    Printer printer = new Printer();
 
     @Override
     public boolean validateName(String s) {
         return inputNothing(s)
                 && inputCommaInARow(s)
-                && inputCharactersOtherThanName(s)
+                && inputOtherThanCharacter(s)
                 && startWithComma(s)
                 && endWithComma(s)
                 && overSizeCharacters(s)
@@ -70,9 +67,9 @@ public class Validator implements ValidatorInterface {
     }
 
     @Override
-    public boolean inputCharactersOtherThanName(String s) {
-        if (!Pattern.matches(CHARACTER_OTHER_THAN_NAME, s)) {
-            printer.printExceptionMessage("INPUT_CHARACTERS_OTHER_THAN_NAME");
+    public boolean inputOtherThanCharacter(String s) {
+        if (!Pattern.matches(OTHER_THAN_CHARACTER, s)) {
+            printer.printExceptionMessage("INPUT_OTHER_THAN_CHARACTERS");
             return false;
         }
         return true;

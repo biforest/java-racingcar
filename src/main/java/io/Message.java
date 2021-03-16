@@ -22,7 +22,7 @@ public class Message implements MessageInterface {
     private void exceptionMessageList() {
         exceptionMessageList.put("INPUT_NOTHING", "아무 문자도 입력되지 않았습니다.");
         exceptionMessageList.put("INPUT_COMMA_IN_A_ROW", "쉼표(,)가 연속으로 입력되었습니다.");
-        exceptionMessageList.put("INPUT_CHARACTERS_OTHER_THAN_NAME", "영어와 쉼표(,) 이외의 다른 문자가 입력되었습니다.");
+        exceptionMessageList.put("INPUT_OTHER_THAN_CHARACTERS", "영어와 쉼표(,) 이외의 다른 문자가 입력되었습니다.");
         exceptionMessageList.put("START_WITH_COMMA", "쉼표(,)로 시작합니다.");
         exceptionMessageList.put("END_WITH_COMMA", "쉼표(,)로 끝납니다.");
         exceptionMessageList.put("INPUT_SAME_NAME", "같은 이름이 입력되었습니다.");

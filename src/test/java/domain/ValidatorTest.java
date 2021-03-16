@@ -63,7 +63,7 @@ class ValidatorTest {
     @ValueSource(strings = {"hobㅁ,hoho,hoho", "asd5,asdfghj,zxcvbn", NORMAL_INPUT_FOR_NAME})
         //입력에 영문, 쉼표(,) 이외의 문자가 있을 경우
     void inputCharactersOtherThanNameTest(String s) {
-        assertThat(vd.inputCharactersOtherThanName(s)).isEqualTo(false);
+        assertThat(vd.inputOtherThanCharacter(s)).isEqualTo(false);
     }
 
     @ParameterizedTest

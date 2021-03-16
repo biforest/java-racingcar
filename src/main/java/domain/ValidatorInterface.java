@@ -13,7 +13,7 @@ public interface ValidatorInterface {
 
     boolean endWithComma(String s);
 
-    boolean inputCharactersOtherThanName(String s);
+    boolean inputOtherThanCharacter(String s);
 
     boolean inputSameName(String s);
 
