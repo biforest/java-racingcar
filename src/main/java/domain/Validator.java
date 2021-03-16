@@ -24,7 +24,7 @@ public class Validator implements ValidatorInterface {
                 && inputCharactersOtherThanName(s)
                 && startWithComma(s)
                 && endWithComma(s)
-                && this.overSizeCharacters(s)
+                && overSizeCharacters(s)
                 && inputSameName(s);
     }
 
@@ -44,7 +44,7 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputCommaInARow(String s) {
-        if (Pattern.matches("^.*(,,).*+$", s)) { //체크 필요
+        if (Pattern.matches(commaInARow, s)) {
             printer.printExceptionMessage("INPUT_COMMA_IN_A_ROW");
             return false;
         }
