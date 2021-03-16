@@ -5,6 +5,7 @@ import domain.Validator;
 import java.util.Scanner;
 
 public class Receiver {
+    private static final String SPLIT_DELIMITER = ",";
     boolean reEnter = false;
     String inputLine = "";
     Scanner scanner = new Scanner(System.in);
@@ -15,7 +16,7 @@ public class Receiver {
             inputLine = scanner.nextLine();
             reEnter = validator.validateName(inputLine);
         }while (!reEnter);
-        return inputLine.split(",");
+        return inputLine.split(SPLIT_DELIMITER);
     }
 
     public int receiveNumber() {
