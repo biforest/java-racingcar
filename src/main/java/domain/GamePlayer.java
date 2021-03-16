@@ -17,7 +17,7 @@ public class GamePlayer {
             car.moveForward();
     }
 
-    public Car[] makeArrayAfterGettingName() {
+    public Car[] makeArray() {
         printer.printGeneralMessage("INPUT_NAMEOFCAR");
         String[] listOfName = receiver.receiveName();
 
@@ -28,7 +28,7 @@ public class GamePlayer {
         return cars;
     }
 
-    public int makeCountAfterGettingNumber() {
+    public int makeCount() {
         printer.printGeneralMessage("INPUT_COUNT");
         return receiver.receiveNumber();
     }
@@ -69,8 +69,8 @@ public class GamePlayer {
     }
 
     public void run() {
-        Car[] cars = makeArrayAfterGettingName();
-        int countRound = makeCountAfterGettingNumber();
+        Car[] cars = makeArray();
+        int countRound = makeCount();
 
         printer.printGeneralMessage("OPERATION_RESULT");
         launchAllRound(cars, countRound);

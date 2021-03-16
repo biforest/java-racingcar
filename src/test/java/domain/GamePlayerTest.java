@@ -44,7 +44,7 @@ class GamePlayerTest {
         try {
             System.setIn(new ByteArrayInputStream(input.getBytes()));
             gameplayer = new GamePlayer();
-            Car[] cars = gameplayer.makeArrayAfterGettingName();
+            Car[] cars = gameplayer.makeArray();
             assertThat("kim").isEqualTo(cars[0].getName());
             assertThat("park").isEqualTo(cars[1].getName());
             assertThat("song").isEqualTo(cars[2].getName());
@@ -63,7 +63,7 @@ class GamePlayerTest {
         try {
             System.setIn(new ByteArrayInputStream(input.getBytes()));
             gameplayer = new GamePlayer();
-            result = gameplayer.makeCountAfterGettingNumber();
+            result = gameplayer.makeCount();
         } finally {
             System.setIn(stdin);
         }
