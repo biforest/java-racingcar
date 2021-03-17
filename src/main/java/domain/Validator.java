@@ -15,7 +15,7 @@ public class Validator implements ValidatorInterface {
     Printer printer = new Printer();
 
     @Override
-    public boolean validateName(String s) {
+    public boolean isCorrectName(String s) {
         return inputNothing(s)
                 && inputCommaInARow(s)
                 && inputOtherThanCharacter(s)

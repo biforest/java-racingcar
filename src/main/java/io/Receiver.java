@@ -14,7 +14,7 @@ public class Receiver {
     public String[] receiveName() {
         do{
             inputLine = scanner.nextLine();
-            reEnter = validator.validateName(inputLine);
+            reEnter = validator.isCorrectName(inputLine);
         }while (!reEnter);
         return inputLine.split(SPLIT_DELIMITER);
     }

@@ -21,7 +21,7 @@ class ValidatorTest {
     @ValueSource(strings = {"123,!@a,BDs5", ",,asd,asd,", NORMAL_INPUT_FOR_NAME})
         //이름 유효성 체크
     void validateNameTest(String s) {
-        assertThat(vd.validateName(s)).isEqualTo(false);
+        assertThat(vd.isCorrectName(s)).isEqualTo(false);
     }
 
     @ParameterizedTest

@@ -1,7 +1,7 @@
 package domain;
 
 public interface ValidatorInterface {
-    boolean validateName(String s);
+    boolean isCorrectName(String s);
 
     boolean validateNumber(String s);
 
