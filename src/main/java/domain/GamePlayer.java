@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer {
-    Printer printer;
-    Receiver receiver;
-    Generator generator;
+    private final Printer printer;
+    private final Receiver receiver;
+    private final Generator generator;
 
     public GamePlayer() {
         this.printer = new Printer();
@@ -47,12 +47,6 @@ public class GamePlayer {
                 printer.printProgressWithSymbol(car.getName(), car.getPosition());
             }
             printer.printGeneralMessage("DEFAULT_SPACE");
-
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
