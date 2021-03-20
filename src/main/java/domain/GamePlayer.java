@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer {
+    private static final int WINNER_CONDITION = 4;
+
     private final Printer printer;
     private final Receiver receiver;
     private final Generator generator;
@@ -16,8 +18,6 @@ public class GamePlayer {
         this.receiver = new Receiver();
         this.generator = new Generator(10);
     }
-
-    private final int WINNER_CONDITION = 4;
 
     void judgeAndMove(Car car, int randomNumber) {
         if (randomNumber >= WINNER_CONDITION)
@@ -51,22 +51,22 @@ public class GamePlayer {
     }
 
     List<Car> checkWhoIsWinner(Car[] cars) {
-        List<Car> result = new ArrayList<>();
+        List<Car> winner = new ArrayList<>();
         int maxNumber = 0;
 
         for (Car car : cars) {
             if(car.getPosition() == maxNumber){
-                result.add(car);
+                winner.add(car);
                 continue;
             }
             if (car.getPosition() > maxNumber) {
                 maxNumber = car.getPosition();
-                result.clear();
-                result.add(car);
+                winner.clear();
+                winner.add(car);
             }
         }
 
-        return result;
+        return winner;
     }
 
     public void run() {
