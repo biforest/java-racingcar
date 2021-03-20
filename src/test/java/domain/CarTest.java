@@ -17,11 +17,11 @@ class CarTest {
 
     @Test
     void getPositionTest() {
-        assertThat(0).isEqualTo(car.getPosition());
+        assertThat(car.getPosition()).isEqualTo(0);
         car.moveForward();
-        assertThat(1).isEqualTo(car.getPosition());
+        assertThat(car.getPosition()).isEqualTo(1);
         car.moveForward();
-        assertThat(2).isEqualTo(car.getPosition());
+        assertThat(car.getPosition()).isEqualTo(2);
     }
 
     @Test
