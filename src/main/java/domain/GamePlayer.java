@@ -55,18 +55,31 @@ public class GamePlayer {
         int maxNumber = 0;
 
         for (Car car : cars) {
-            if(car.getPosition() == maxNumber){
+            if(judgeSameWithMax(maxNumber, car)){
                 winner.add(car);
-                continue;
             }
-            if (car.getPosition() > maxNumber) {
-                maxNumber = car.getPosition();
-                winner.clear();
-                winner.add(car);
+            if (judgeOverMax(maxNumber, car)) {
+                maxNumber = initWinner(winner, car);
             }
         }
 
         return winner;
+    }
+
+    private int initWinner(List<Car> winner, Car car) {
+        int maxNumber = car.getPosition();
+        winner.clear();
+        winner.add(car);
+
+        return maxNumber;
+    }
+
+    boolean judgeOverMax(int maxNumber, Car car) {
+        return car.getPosition() > maxNumber;
+    }
+
+    boolean judgeSameWithMax(int maxNumber, Car car) {
+        return car.getPosition() == maxNumber;
     }
 
     public void run() {
