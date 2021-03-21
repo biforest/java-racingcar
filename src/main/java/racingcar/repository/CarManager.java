@@ -9,6 +9,7 @@ import racingcar.util.RandomGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class CarManager {
@@ -62,17 +63,12 @@ public class CarManager {
     }
 
     public String createWinnerMessage() {
-        StringBuilder winnerNames = new StringBuilder();
+        StringJoiner winnerMessage = new StringJoiner(",");
         List<Car> winners = winnerList();
-        winnerNames.append(winners.get(0).getName());
-
-        for (int i = 1; i < winners.size(); i++) {
-            Car winner = winners.get(i);
-            winnerNames.append(", ");
-            winnerNames.append(winner.getName());
+        for (Car winner : winners) {
+            winnerMessage.add(winner.getName());
         }
-
-        return winnerNames.toString();
+        return winnerMessage.toString();
     }
 
     private List<Car> winnerList() {
