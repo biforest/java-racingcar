@@ -14,7 +14,7 @@ public class Car {
     }
 
     private void checkBlankName(String name) {
-        if (name.equals("")) {
+        if (name.isBlank()) {
             throw new NotBlankException();
         }
     }
