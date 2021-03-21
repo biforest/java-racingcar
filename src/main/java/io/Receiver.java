@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Receiver {
     boolean reEnter = false;
-    String inputLine = "";
-    Scanner scanner = new Scanner(System.in);
-    Validator validator = new Validator();
+    private String inputLine = "";
+    private Scanner scanner = new Scanner(System.in);
+    private Validator validator = new Validator();
 
     public String[] receiveName() {
         do{

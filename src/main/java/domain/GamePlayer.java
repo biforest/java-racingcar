@@ -55,10 +55,10 @@ public class GamePlayer {
         int maxNumber = 0;
 
         for (Car car : cars) {
-            if(judgeSameWithMax(maxNumber, car)){
+            if(car.isMaxNumber(maxNumber)){
                 winner.add(car);
             }
-            if (judgeOverMax(maxNumber, car)) {
+            if (car.isOverMaxNumber(maxNumber)) {
                 maxNumber = initWinner(winner, car);
             }
         }
@@ -72,14 +72,6 @@ public class GamePlayer {
         winner.add(car);
 
         return maxNumber;
-    }
-
-    boolean judgeOverMax(int maxNumber, Car car) {
-        return car.getPosition() > maxNumber;
-    }
-
-    boolean judgeSameWithMax(int maxNumber, Car car) {
-        return car.getPosition() == maxNumber;
     }
 
     public String makeWinnerToString(List<Car> cars) {

@@ -19,4 +19,12 @@ public class Car {
     public void moveForward() {
         this.position++;
     }
+
+    public boolean isMaxNumber(int maxNumber) {
+        return this.position == maxNumber;
+    }
+
+    public boolean isOverMaxNumber(int maxNumber) {
+        return this.position > maxNumber;
+    }
 }
