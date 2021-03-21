@@ -1,6 +1,7 @@
 package io;
 
 import domain.Car;
+import domain.GamePlayer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,11 +17,13 @@ class PrinterTest {
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     Printer printer;
     List<Car> cars = new ArrayList<>();
+    GamePlayer gamePlayer;
 
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
         printer = new Printer();
+        gamePlayer = new GamePlayer();
     }
 
     @Test
@@ -36,7 +39,7 @@ class PrinterTest {
         cars.add(car1);
         cars.add(car2);
 
-        String result = printer.makeWinnerToString(cars);
+        String result = gamePlayer.makeWinnerToString(cars);
         assertThat(result).isEqualTo("kim, park");
     }
 

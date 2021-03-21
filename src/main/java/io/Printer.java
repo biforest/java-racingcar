@@ -17,18 +17,6 @@ public class Printer {
         System.out.printf("%5s : %s\n", name, result);
     }
 
-    public String makeWinnerToString(List<Car> cars) {
-        String winner = cars.get(0).getName();
-
-        if(cars.size() > 1) {
-            for(int i = 1;i<cars.size();i++) {
-                winner += ", " + cars.get(i).getName();
-            }
-        }
-
-        return winner;
-    }
-
     public void printWinner(String winner) {
         System.out.println(winner + message.selectMessageFromGeneral("FIANL_WINNER"));
     }

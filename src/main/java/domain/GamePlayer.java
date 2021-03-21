@@ -82,6 +82,17 @@ public class GamePlayer {
         return car.getPosition() == maxNumber;
     }
 
+    public String makeWinnerToString(List<Car> cars) {
+        String winner = cars.get(0).getName();
+
+        if(cars.size() > 1) {
+            for(int i = 1;i<cars.size();i++) {
+                winner += ", " + cars.get(i).getName();
+            }
+        }
+
+        return winner;
+    }
     public void run() {
         Car[] cars = makeArrayAfterGettingName();
         int countRound = makeCountAfterGettingNumber();
@@ -90,6 +101,6 @@ public class GamePlayer {
         launchAllRound(cars, countRound);
 
         List<Car> winner = checkWhoIsWinner(cars);
-        printer.printWinner(printer.makeWinnerToString(winner));
+        printer.printWinner(makeWinnerToString(winner));
     }
 }
