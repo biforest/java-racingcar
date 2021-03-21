@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class Validator implements ValidatorInterface {
     private static final int MAX_NAME_SIZE = 5;
     private static final String valiNumber = "^[0-9]+$";
-    private static final String commaInARow = "^(,,)+$";
+    private static final String commaInARow = "^.*(,,).*+$";
     private static final String characterOTN = "^[a-zA-Z,]+$";
     Printer printer;
 
@@ -24,7 +24,7 @@ public class Validator implements ValidatorInterface {
                 && inputCharactersOtherThanName(s)
                 && startWithComma(s)
                 && endWithComma(s)
-                && this.overSizeCharacters(s)
+                && overSizeCharacters(s)
                 && inputSameName(s);
     }
 
@@ -44,7 +44,7 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputCommaInARow(String s) {
-        if (Pattern.matches("^.*(,,).*+$", s)) { //체크 필요
+        if (Pattern.matches(commaInARow, s)) { //체크 필요
             printer.printExceptionMessage("INPUT_COMMA_IN_A_ROW");
             return false;
         }

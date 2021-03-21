@@ -10,7 +10,7 @@ class GeneratorTest {
 
     @BeforeEach
     void setUp() {
-        generator = new Generator(10);
+        generator = new Generator();
     }
 
     @Test
