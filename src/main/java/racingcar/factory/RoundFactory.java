@@ -2,8 +2,7 @@ package racingcar.factory;
 
 import racingcar.domain.round.Round;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoundFactory {
@@ -12,7 +11,11 @@ public class RoundFactory {
 
     public static List<Round> createRounds(int numberOfRounds) {
         validate(numberOfRounds);
-        return Arrays.asList((Round[]) Array.newInstance(Round.class, numberOfRounds));
+        List<Round> rounds = new ArrayList<>();
+        for (int i = 0; i < numberOfRounds; i++) {
+            rounds.add(new Round());
+        }
+        return rounds;
     }
 
     private static void validate(int numberOfRounds) {
