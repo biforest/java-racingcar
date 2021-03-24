@@ -10,8 +10,8 @@ public class CarFactory {
 
     private static final String DELIMITER = ",";
 
-    public static List<Car> createCars(String receiveCarNames) {
-        return Arrays.stream(receiveCarNames.split(DELIMITER))
+    public static List<Car> createCars(String carNames) {
+        return Arrays.stream(carNames.split(DELIMITER))
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
