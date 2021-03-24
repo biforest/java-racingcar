@@ -1,9 +1,14 @@
-package racingcar.ui;
+package racingcar.ui.receiver;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
-public class Receiver {
-    private static final Scanner scanner = new Scanner(System.in);
+public class ConsoleReceiver extends Receiver {
+    private final Scanner scanner;
+
+    public ConsoleReceiver(InputStream in) {
+        scanner = new Scanner(in);
+    }
 
     public String receiveCarNames() {
         return scanner.nextLine();
