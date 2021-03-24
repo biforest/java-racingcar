@@ -1,11 +1,15 @@
 package racingcar;
 
 import racingcar.domain.Racing;
+import racingcar.domain.car.Car;
 import racingcar.domain.round.Rounds;
 import racingcar.domain.Winner;
 import racingcar.domain.car.Cars;
+import racingcar.factory.CarFactory;
 import racingcar.ui.Printer;
 import racingcar.ui.Receiver;
+
+import java.util.List;
 
 
 public class RacingGameApplication {
@@ -14,10 +18,11 @@ public class RacingGameApplication {
     private final Receiver receiver = new Receiver();
 
     public void run() {
-        Cars cars = new Cars(receiver.receiveCarNames(printer));
+        List<Car> cars = CarFactory.createCars(receiver.receiveCarNames(printer));
+        Cars wrappedCars = new Cars(cars);
         Rounds rounds = new Rounds(receiver.receiveNumberOfRounds(printer));
 
-        Racing racing = new Racing(cars, rounds);
+        Racing racing = new Racing(wrappedCars, rounds);
         Winner winners = racing.winners(printer);
         printer.printWinner(winners);
     }
