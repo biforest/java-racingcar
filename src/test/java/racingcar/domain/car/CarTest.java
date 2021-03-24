@@ -1,6 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
-import racingcar.domain.exception.NotBlankException;
+import racingcar.domain.car.Car;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,16 +31,25 @@ class CarTest {
         car.move();
 
         //when
-        String expected = car.toString();
+        String actual = car.toString();
 
         //then
-        assertThat(expected).isEqualTo("name : ---");
+        assertThat(actual).isEqualTo("name : ---");
     }
 
     @Test
-    void 빈문자열의_이름이_주어지면_NotBlankException을_던진다() {
+    void 차의_이름이_5자_이상이면_예외를_던진다() {
         //then
-        assertThatExceptionOfType(NotBlankException.class)
-                .isThrownBy(() -> new Car(""));
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new Car("pkalsh"))
+                .withMessage("이름은 5자 이상을 넘길 수 없습니다.");
+    }
+
+    @Test
+    void 빈문자열의_이름이_주어지면_예외를_던진다() {
+        //then
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new Car(""))
+                .withMessage("이름은 공백일 수 없습니다.");
     }
 }
