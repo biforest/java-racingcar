@@ -29,16 +29,34 @@ public class RacingGameApplication {
 
     public void run() {
         printer.requestCarName();
-        List<Car> cars = CarFactory.createCars(receiver.receiveCarNames());
+        List<Car> cars = createCars();
         Cars wrappedCars = new Cars(cars);
 
         printer.requestNumberOfRounds();
-        List<Round> rounds = RoundFactory.createRounds(receiver.receiveNumberOfRounds());
+        List<Round> rounds = createRounds();
         Rounds wrappedRounds = new Rounds(rounds);
 
         Racing racing = new Racing(wrappedCars, wrappedRounds);
         Winner winners = racing.winners(printer);
         printer.printWinner(winners);
+    }
+
+    private List<Car> createCars() {
+        try {
+            return CarFactory.createCars(receiver.receiveCarNames());
+        } catch (IllegalArgumentException e) {
+            printer.printExceptionMessage(e);
+            return CarFactory.createCars(receiver.receiveCarNames());
+        }
+    }
+
+    private List<Round> createRounds() {
+        try {
+            return RoundFactory.createRounds(receiver.receiveNumberOfRounds());
+        } catch (IllegalArgumentException e) {
+            printer.printExceptionMessage(e);
+            return RoundFactory.createRounds(receiver.receiveNumberOfRounds());
+        }
     }
 
     public static void main(String[] args) {
