@@ -28,7 +28,7 @@ public class InputExceptionHandler extends ReceiverFilter {
         try {
             return receiver.receiveNumberOfRounds();
         } catch (InputMismatchException e) {
-            printer.printExceptionMessage(e);
+            printer.printInputMismatchExceptionMessage();
             receiver.clearBuffer();
         } catch (IllegalArgumentException e) {
             printer.printExceptionMessage(e);
