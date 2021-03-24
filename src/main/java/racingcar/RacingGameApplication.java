@@ -14,10 +14,10 @@ public class RacingGameApplication {
     private final Receiver receiver = new Receiver();
 
     public void run() {
-        Cars container = new Cars(receiver.receiveCarNames(printer));
+        Cars cars = new Cars(receiver.receiveCarNames(printer));
         Rounds rounds = new Rounds(receiver.receiveNumberOfRounds(printer));
 
-        Racing racing = new Racing(container, rounds);
+        Racing racing = new Racing(cars, rounds);
         Winner winners = racing.winners(printer);
         printer.printWinner(winners);
     }
