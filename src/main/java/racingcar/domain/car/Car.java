@@ -1,26 +1,18 @@
-package racingcar.domain;
-
-import racingcar.domain.exception.NotBlankException;
+package racingcar.domain.car;
 
 import java.util.Objects;
 
 public class Car {
-    private final String name;
-    private int position = 0;
+    private final Name name;
+    private int position;
 
     public Car(String name) {
-        checkBlankName(name);
-        this.name = name;
-    }
-
-    private void checkBlankName(String name) {
-        if (name.isBlank()) {
-            throw new NotBlankException();
-        }
+        this.name = new Name(name);
+        this.position = 0;
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public int getPosition() {
@@ -28,12 +20,16 @@ public class Car {
     }
 
     public void move() {
-        position += 1;
+        position = position + 1;
+    }
+
+    public boolean isWinnerPosition(int winnerPosition) {
+        return position == winnerPosition;
     }
 
     @Override
     public String toString() {
-        return name + " : " + "-".repeat(Math.max(0, position));
+        return name.getName() + " : " + "-".repeat(Math.max(0, position));
     }
 
     @Override
