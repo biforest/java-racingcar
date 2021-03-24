@@ -23,6 +23,7 @@ class RoundFactoryTest {
 
         //then
         assertThat(rounds.size()).isEqualTo(expected);
+        rounds.forEach(round -> assertThat(round).isNotNull());
     }
 
     @ParameterizedTest
