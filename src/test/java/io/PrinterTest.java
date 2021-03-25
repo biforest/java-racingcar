@@ -2,6 +2,7 @@ package io;
 
 import domain.Car;
 import domain.GamePlayer;
+import domain.Winner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +40,7 @@ class PrinterTest {
         cars.add(car1);
         cars.add(car2);
 
-        String result = gamePlayer.makeWinnerToString(cars);
+        String result = Winner.makeWinnerToString(cars);
         assertThat(result).isEqualTo("kim, park");
     }
 

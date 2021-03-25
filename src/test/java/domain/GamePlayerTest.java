@@ -33,7 +33,7 @@ class GamePlayerTest {
         cars.add(car2);
         Car[] carArray = new Car[]{car1, car2};
 
-        assertThat(cars).isEqualTo(gameplayer.checkWhoIsWinner(carArray));
+        assertThat(cars).isEqualTo(Winner.checkWhoIsWinner(carArray));
     }
 
     @Test

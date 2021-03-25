@@ -5,6 +5,7 @@ import io.Printer;
 import io.Receiver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GamePlayer {
@@ -28,11 +29,11 @@ public class GamePlayer {
     Car[] makeArrayAfterGettingName() {
         String messageCode = Message.GeneralMessages.INPUT_NAMEOFCAR.getMessage();
         printer.printMessages(messageCode);
-        String[] listOfName = receiver.receiveName();
+        ArrayList<String> names = new ArrayList<>(Arrays.asList(receiver.receiveName()));
 
-        Car[] cars = new Car[listOfName.length];
-        for (int i = 0; i < listOfName.length; i++)
-            cars[i] = new Car(listOfName[i]);
+        Car[] cars = new Car[names.size()];
+        for (int i = 0; i < names.size(); i++)
+            cars[i] = new Car(names.get(i));
 
         return cars;
     }
@@ -54,42 +55,6 @@ public class GamePlayer {
         }
     }
 
-    List<Car> checkWhoIsWinner(Car[] cars) {
-        List<Car> winner = new ArrayList<>();
-        int maxNumber = 0;
-
-        for (Car car : cars) {
-            if(car.isMaxNumber(maxNumber)){
-                winner.add(car);
-            }
-            if (car.isOverMaxNumber(maxNumber)) {
-                maxNumber = initWinner(winner, car);
-            }
-        }
-
-        return winner;
-    }
-
-    private int initWinner(List<Car> winner, Car car) {
-        int maxNumber = car.getPosition();
-        winner.clear();
-        winner.add(car);
-
-        return maxNumber;
-    }
-
-    public String makeWinnerToString(List<Car> cars) {
-        String winner = cars.get(0).getName();
-
-        if(cars.size() > 1) {
-            for(int i = 1;i<cars.size();i++) {
-                winner += ", " + cars.get(i).getName();
-            }
-        }
-
-        return winner;
-    }
-
     public void run() {
         String messageCode = Message.GeneralMessages.OPERATION_RESULT.getMessage();
         Car[] cars = makeArrayAfterGettingName();
@@ -98,7 +63,7 @@ public class GamePlayer {
         printer.printMessages(messageCode);
         launchAllRound(cars, countRound);
 
-        List<Car> winner = checkWhoIsWinner(cars);
-        printer.printWinner(makeWinnerToString(winner));
+        List<Car> winner = Winner.checkWhoIsWinner(cars);
+        printer.printWinner(Winner.makeWinnerToString(winner));
     }
 }
