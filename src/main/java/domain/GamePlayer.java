@@ -1,5 +1,6 @@
 package domain;
 
+import io.Message;
 import io.Printer;
 import io.Receiver;
 
@@ -25,7 +26,8 @@ public class GamePlayer {
     }
 
     Car[] makeArrayAfterGettingName() {
-        printer.printGeneralMessage("INPUT_NAMEOFCAR");
+        String messageCode = Message.GeneralMessages.INPUT_NAMEOFCAR.getMessage();
+        printer.printMessages(messageCode);
         String[] listOfName = receiver.receiveName();
 
         Car[] cars = new Car[listOfName.length];
@@ -36,17 +38,19 @@ public class GamePlayer {
     }
 
     int makeCountAfterGettingNumber() {
-        printer.printGeneralMessage("INPUT_COUNT");
+        String messageCode = Message.GeneralMessages.INPUT_COUNT.getMessage();
+        printer.printMessages(messageCode);
         return receiver.receiveNumber();
     }
 
     void launchAllRound(Car[] cars, int countRound) {
+        String messageCode = Message.GeneralMessages.DEFAULT_SPACE.getMessage();
         for (int i = 0; i < countRound; i++) {
             for (Car car : cars) {
                 judgeAndMove(car, generator.generateRandomNumber());
                 printer.printProgressWithSymbol(car.getName(), car.getPosition());
             }
-            printer.printGeneralMessage("DEFAULT_SPACE");
+            printer.printMessages(messageCode);
         }
     }
 
@@ -85,11 +89,13 @@ public class GamePlayer {
 
         return winner;
     }
+
     public void run() {
+        String messageCode = Message.GeneralMessages.OPERATION_RESULT.getMessage();
         Car[] cars = makeArrayAfterGettingName();
         int countRound = makeCountAfterGettingNumber();
 
-        printer.printGeneralMessage("OPERATION_RESULT");
+        printer.printMessages(messageCode);
         launchAllRound(cars, countRound);
 
         List<Car> winner = checkWhoIsWinner(cars);

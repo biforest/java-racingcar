@@ -18,7 +18,7 @@ public class Printer {
     }
 
     public void printWinner(String winner) {
-        System.out.println(winner + message.selectMessageFromGeneral("FIANL_WINNER"));
+        System.out.println(winner + Message.GeneralMessages.FIANL_WINNER.getMessage());
     }
 
     public void printGeneralMessage(String s){

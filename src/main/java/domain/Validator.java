@@ -16,11 +16,9 @@ public class Validator implements ValidatorInterface {
     private static final String NOTHING = "";
 
     Printer printer;
-    Message message;
 
     public Validator() {
         printer = new Printer();
-        message = new Message();
     }
 
     @Override
