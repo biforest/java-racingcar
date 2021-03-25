@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class Validator implements ValidatorInterface {
+public class Validator {
     private static final int MAX_NAME_SIZE = 5;
     private static final String valiNumber = "^[0-9]+$";
     private static final String commaInARow = "^.*(,,).*+$";
@@ -21,7 +21,6 @@ public class Validator implements ValidatorInterface {
         printer = new Printer();
     }
 
-    @Override
     public boolean validateName(String s) {
         return inputNothing(s)
                 && inputCommaInARow(s)
@@ -32,12 +31,10 @@ public class Validator implements ValidatorInterface {
                 && inputSameName(s);
     }
 
-    @Override
-    public boolean validateNumber(String s) {
+    public boolean isValidNumber(String s) {
         return s.matches(valiNumber);
     }
 
-    @Override
     public boolean inputNothing(String s) {
         String messageCode = Message.ExceptionMessages.INPUT_NOTHING.getMessage();
 
@@ -48,7 +45,6 @@ public class Validator implements ValidatorInterface {
         return true;
     }
 
-    @Override
     public boolean inputCommaInARow(String s) {
         String messageCode = Message.ExceptionMessages.INPUT_COMMA_IN_A_ROW.getMessage();
 
@@ -59,7 +55,6 @@ public class Validator implements ValidatorInterface {
         return true;
     }
 
-    @Override
     public boolean startWithComma(String s) {
         String messageCode = Message.ExceptionMessages.START_WITH_COMMA.getMessage();
 
@@ -70,7 +65,6 @@ public class Validator implements ValidatorInterface {
         return true;
     }
 
-    @Override
     public boolean endWithComma(String s) {
         String messageCode = Message.ExceptionMessages.END_WITH_COMMA.getMessage();
 
@@ -81,7 +75,6 @@ public class Validator implements ValidatorInterface {
         return true;
     }
 
-    @Override
     public boolean inputCharactersOtherThanName(String s) {
         String messageCode = Message.ExceptionMessages.INPUT_CHARACTERS_OTHER_THAN_NAME.getMessage();
 
@@ -92,7 +85,6 @@ public class Validator implements ValidatorInterface {
         return true;
     }
 
-    @Override
     public boolean inputSameName(String s) {
         String messageCode = Message.ExceptionMessages.INPUT_SAME_NAME.getMessage();
         List<String> carNames = Arrays.asList(s.split(","));
@@ -107,7 +99,6 @@ public class Validator implements ValidatorInterface {
         return true;
     }
 
-    @Override
     public boolean overSizeCharacters(String s) {
         String messageCode = Message.ExceptionMessages.OVER_SIZE_CHARACTERS.getMessage();
         String[] splitName = s.split(",");

@@ -21,7 +21,7 @@ public class Receiver {
     public int receiveNumber() {
         do{
             inputLine = scanner.nextLine();
-            reEnter = validator.validateNumber(inputLine);
+            reEnter = validator.isValidNumber(inputLine);
         }while (!reEnter);
         return Integer.parseInt(inputLine);
     }

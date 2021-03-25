@@ -28,7 +28,7 @@ class ValidatorTest {
     @ValueSource(strings = {"it's not a number", "what else?", NORMAL_INPUT_FOR_NUMBER})
         //숫자 유효성 체크
     void validateNumberTest(String s) {
-        assertThat(vd.validateNumber(s)).isEqualTo(false);
+        assertThat(vd.isValidNumber(s)).isEqualTo(false);
     }
 
     @ParameterizedTest
