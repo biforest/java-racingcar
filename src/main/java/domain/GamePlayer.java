@@ -48,7 +48,7 @@ public class GamePlayer {
         for (int i = 0; i < countRound; i++) {
             for (Car car : cars) {
                 judgeAndMove(car, generator.generateRandomNumber());
-                printer.printProgressWithSymbol(car.getName(), car.getPosition());
+                printer.printProgress(car.getName(), car.getProgressWithSymbol());
             }
             printer.printMessages(messageCode);
         }

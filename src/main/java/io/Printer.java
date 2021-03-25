@@ -9,12 +9,8 @@ public class Printer {
 
     private static String DEFAULT_SYMBOL = "-";
 
-    public void printProgressWithSymbol(String name, int position) {
-        String result = "";
-        for(int i = 0;i < position;i++)
-            result += DEFAULT_SYMBOL;
-
-        System.out.printf("%5s : %s\n", name, result);
+    public void printProgress(String name, String progress) {
+        System.out.printf("%5s : %s\n", name, progress);
     }
 
     public void printWinner(String winner) {

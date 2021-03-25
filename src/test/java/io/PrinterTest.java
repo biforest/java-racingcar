@@ -28,7 +28,7 @@ class PrinterTest {
 
     @Test
     void printProgressWithSymbolTest() {
-        printer.printProgressWithSymbol("kim", 5);
+        printer.printProgress("kim", "-----");
         assertEquals("kim : -----", outputStreamCaptor.toString().trim());
     }
 

@@ -27,4 +27,12 @@ public class Car {
     public boolean isOverMaxNumber(int maxNumber) {
         return this.position > maxNumber;
     }
+
+    public String getProgressWithSymbol() {
+        String result = "";
+        for(int i = 0;i < this.position;i++)
+            result += "-";
+
+        return result;
+    }
 }
