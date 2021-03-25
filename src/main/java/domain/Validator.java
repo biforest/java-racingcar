@@ -1,5 +1,6 @@
 package domain;
 
+import io.Message;
 import io.Printer;
 
 import java.util.Arrays;
@@ -11,10 +12,15 @@ public class Validator implements ValidatorInterface {
     private static final String valiNumber = "^[0-9]+$";
     private static final String commaInARow = "^.*(,,).*+$";
     private static final String characterOTN = "^[a-zA-Z,]+$";
+    private static final Character COMMA = ',';
+    private static final String NOTHING = "";
+
     Printer printer;
+    Message message;
 
     public Validator() {
         printer = new Printer();
+        message = new Message();
     }
 
     @Override
@@ -35,8 +41,10 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputNothing(String s) {
-        if (s.equals("")) {
-            printer.printExceptionMessage("INPUT_NOTHING");
+        String messageCode = Message.ExceptionMessages.INPUT_NOTHING.getMessage();
+
+        if (s.equals(NOTHING)) {
+            printer.printMessages(messageCode);
             return false;
         }
         return true;
@@ -44,8 +52,10 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputCommaInARow(String s) {
-        if (Pattern.matches(commaInARow, s)) { //체크 필요
-            printer.printExceptionMessage("INPUT_COMMA_IN_A_ROW");
+        String messageCode = Message.ExceptionMessages.INPUT_COMMA_IN_A_ROW.getMessage();
+
+        if (Pattern.matches(commaInARow, s)) {
+            printer.printMessages(messageCode);
             return false;
         }
         return true;
@@ -53,8 +63,10 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean startWithComma(String s) {
-        if (s.charAt(0) == ',') {
-            printer.printExceptionMessage("START_WITH_COMMA");
+        String messageCode = Message.ExceptionMessages.START_WITH_COMMA.getMessage();
+
+        if (s.charAt(0) == COMMA) {
+            printer.printMessages(messageCode);
             return false;
         }
         return true;
@@ -62,8 +74,10 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean endWithComma(String s) {
-        if (s.charAt(s.length() - 1) == ',') {
-            printer.printExceptionMessage("END_WITH_COMMA");
+        String messageCode = Message.ExceptionMessages.END_WITH_COMMA.getMessage();
+
+        if (s.charAt(s.length() - 1) == COMMA) {
+            printer.printMessages(messageCode);
             return false;
         }
         return true;
@@ -71,8 +85,10 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputCharactersOtherThanName(String s) {
+        String messageCode = Message.ExceptionMessages.INPUT_CHARACTERS_OTHER_THAN_NAME.getMessage();
+
         if (!Pattern.matches(characterOTN, s)) {
-            printer.printExceptionMessage("INPUT_CHARACTERS_OTHER_THAN_NAME");
+            printer.printMessages(messageCode);
             return false;
         }
         return true;
@@ -80,12 +96,13 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputSameName(String s) {
+        String messageCode = Message.ExceptionMessages.INPUT_SAME_NAME.getMessage();
         List<String> carNames = Arrays.asList(s.split(","));
         int sizeOfNameList = carNames.size();
 
         for (int i = 0; i < sizeOfNameList; i++) {
             if (carNames.subList(i + 1, sizeOfNameList).contains(carNames.get(i))) {
-                printer.printExceptionMessage("INPUT_SAME_NAME");
+                printer.printMessages(messageCode);
                 return false;
             }
         }
@@ -94,10 +111,12 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean overSizeCharacters(String s) {
+        String messageCode = Message.ExceptionMessages.OVER_SIZE_CHARACTERS.getMessage();
         String[] splitName = s.split(",");
+
         for (String i : splitName)
             if (i.length() > MAX_NAME_SIZE) {
-                printer.printExceptionMessage("OVER_SIZE_CHARACTERS");
+                printer.printMessages(messageCode);
                 return false;
             }
         return true;

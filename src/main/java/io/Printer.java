@@ -28,4 +28,8 @@ public class Printer {
     public void printExceptionMessage(String s){
         System.out.println(message.selectMessageFromException(s));
     }
+
+    public void printMessages(String message) {
+        System.out.println(message);
+    }
 }
