@@ -80,11 +80,11 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean inputSameName(String s) {
-        List<String> CAR_NAME_LIST = Arrays.asList(s.split(","));
-        int sizeOfNameList = CAR_NAME_LIST.size();
+        List<String> carNames = Arrays.asList(s.split(","));
+        int sizeOfNameList = carNames.size();
 
         for (int i = 0; i < sizeOfNameList; i++) {
-            if (CAR_NAME_LIST.subList(i + 1, sizeOfNameList).contains(CAR_NAME_LIST.get(i))) {
+            if (carNames.subList(i + 1, sizeOfNameList).contains(carNames.get(i))) {
                 printer.printExceptionMessage("INPUT_SAME_NAME");
                 return false;
             }
