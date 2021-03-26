@@ -12,6 +12,7 @@ public class GamePlayer {
     private final Receiver receiver = new Receiver();
     private final Generator generator= new Generator();
     private final CarManager carManager = new CarManager();
+    private final Referee referee = new Referee();
 
     public void judgeToMove(Car car, int randomNumber) {
         if (randomNumber >= WINNER_CONDITION)
@@ -39,25 +40,6 @@ public class GamePlayer {
         }
     }
 
-    public List<Car> checkWhoIsWinner(Car[] cars) {
-        List<Car> result = new ArrayList<>();
-        int maxNumber = 0;
-
-        for (Car car : cars) {
-            if(car.getPosition() == maxNumber){
-                result.add(car);
-                continue;
-            }
-            if (car.getPosition() > maxNumber) {
-                maxNumber = car.getPosition();
-                result.clear();
-                result.add(car);
-            }
-        }
-
-        return result;
-    }
-
     public void run() {
         printer.printGeneralMessage("INPUT_NAMEOFCAR");
         Car[] cars = carManager.produceCar();
@@ -66,7 +48,7 @@ public class GamePlayer {
         printer.printGeneralMessage("OPERATION_RESULT");
         launchAllRound(cars, countRound);
 
-        List<Car> winner = checkWhoIsWinner(cars);
+        List<Car> winner = referee.checkWinner(cars);
         printer.printWinner(printer.makeWinnerToString(winner));
     }
 }
