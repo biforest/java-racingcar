@@ -13,6 +13,6 @@ public class Position implements Comparable<Position> {
 
     @Override
     public int compareTo(Position o) {
-        return o.position - position;
+        return position - o.position;
     }
 }
