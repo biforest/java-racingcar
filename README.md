@@ -1,5 +1,52 @@
 # 미션 - 자동차 경주 게임
 
+## 📋 기능 구현 목록
+- 사용자 입력 요구문 출력
+- 사용자 입력 
+  - 예외 처리
+  - 플레이어 생성
+  
+- 경주 게임 실행
+  - 무작위 수 생성
+  - 4이상 인지 비교
+  - 1초 간격두고 라운드 결과 출력
+  
+- 우승자 판별
+  - 우승자 출력
+  
+## 🚬 클래스와 메서드?
+- Application
+- Receiver
+  - receiveName
+  - receiveNumber
+- Printer
+  - printMessage
+- GamePlayer
+  - run
+  - judgeToMove
+  - makeArrayAfterGettingName
+  - makeCountAfterGettingNumber
+  - launchAllRound
+  - checkWhoIsWinner
+- Generator
+  - generateRandomNumber
+- Car
+  - getPosition
+  - getName
+  - moveForward
+- Validate
+  - validateName(s)
+    - inputNothing(s)
+    - inputCommaInARow(s)
+    - inputCharactersOtherThanName(s)
+    - startWithComma(s)
+    - endWithComma(s)
+    - over5Characters(s)
+    - inputSameName(s))
+  - validateNumber(s)
+- Message
+
+
 ## 🚀 기능 요구사항
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
