@@ -26,26 +26,33 @@ public class GamePlayer {
             car.moveForward();
     }
 
-    Car[] makeArrayAfterGettingName() {
+    ArrayList<Car> inputNames() {
         String messageCode = Message.GeneralMessages.INPUT_NAMEOFCAR.getMessage();
         printer.printMessages(messageCode);
         ArrayList<String> names = new ArrayList<>(Arrays.asList(receiver.receiveName()));
 
-        Car[] cars = new Car[names.size()];
+        return makeCarList(names);
+    }
+
+    ArrayList<Car> makeCarList(List<String> names) {
+        ArrayList<Car> cars = new ArrayList<>();
+
         for (int i = 0; i < names.size(); i++)
-            cars[i] = new Car(names.get(i));
+            cars.add(new Car(names.get(i)));
 
         return cars;
     }
 
-    int makeCountAfterGettingNumber() {
+    int inputNumber() {
         String messageCode = Message.GeneralMessages.INPUT_COUNT.getMessage();
         printer.printMessages(messageCode);
+
         return receiver.receiveNumber();
     }
 
-    void launchAllRound(Car[] cars, int countRound) {
+    void launchAllRound(ArrayList<Car> cars, int countRound) {
         String messageCode = Message.GeneralMessages.DEFAULT_SPACE.getMessage();
+
         for (int i = 0; i < countRound; i++) {
             for (Car car : cars) {
                 judgeAndMove(car, generator.generateRandomNumber());
@@ -57,13 +64,13 @@ public class GamePlayer {
 
     public void run() {
         String messageCode = Message.GeneralMessages.OPERATION_RESULT.getMessage();
-        Car[] cars = makeArrayAfterGettingName();
-        int countRound = makeCountAfterGettingNumber();
+        ArrayList<Car> cars = inputNames();
+        int countRound = inputNumber();
 
         printer.printMessages(messageCode);
         launchAllRound(cars, countRound);
 
-        List<Car> winner = Winner.checkWhoIsWinner(cars);
+        ArrayList<Car> winner = Winner.checkWhoIsWinner(cars);
         printer.printWinner(Winner.makeWinnerToString(winner));
     }
 }

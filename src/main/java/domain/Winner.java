@@ -16,8 +16,8 @@ public class Winner {
         return winner.toString();
     }
 
-    public static List<Car> checkWhoIsWinner(Car[] cars) {
-        List<Car> winner = new ArrayList<>();
+    public static ArrayList<Car> checkWhoIsWinner(ArrayList<Car> cars) {
+        ArrayList<Car> winner = new ArrayList<>();
         int maxNumber = 0;
 
         for (Car car : cars) {

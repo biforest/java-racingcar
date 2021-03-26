@@ -29,10 +29,10 @@ public class Car {
     }
 
     public String getProgressWithSymbol() {
-        String result = "";
+        String progress = "";
         for(int i = 0;i < this.position;i++)
-            result += "-";
+            progress += "-";
 
-        return result;
+        return progress;
     }
 }

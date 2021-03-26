@@ -31,7 +31,9 @@ class GamePlayerTest {
         Car car2 = new Car("park");
         cars.add(car1);
         cars.add(car2);
-        Car[] carArray = new Car[]{car1, car2};
+        ArrayList<Car> carArray = new ArrayList<>();
+        carArray.add(car1);
+        carArray.add(car2);
 
         assertThat(cars).isEqualTo(Winner.checkWhoIsWinner(carArray));
     }
@@ -44,10 +46,10 @@ class GamePlayerTest {
         try {
             System.setIn(new ByteArrayInputStream(input.getBytes()));
             gameplayer = new GamePlayer();
-            Car[] cars = gameplayer.makeArrayAfterGettingName();
-            assertThat("kim").isEqualTo(cars[0].getName());
-            assertThat("park").isEqualTo(cars[1].getName());
-            assertThat("song").isEqualTo(cars[2].getName());
+            ArrayList<Car> cars = gameplayer.inputNames();
+            assertThat("kim").isEqualTo(cars.get(0).getName());
+            assertThat("park").isEqualTo(cars.get(1).getName());
+            assertThat("song").isEqualTo(cars.get(2).getName());
         } finally {
             System.setIn(stdin);
         }
@@ -63,7 +65,7 @@ class GamePlayerTest {
         try {
             System.setIn(new ByteArrayInputStream(input.getBytes()));
             gameplayer = new GamePlayer();
-            result = gameplayer.makeCountAfterGettingNumber();
+            result = gameplayer.inputNumber();
         } finally {
             System.setIn(stdin);
         }
