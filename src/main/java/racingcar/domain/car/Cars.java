@@ -1,7 +1,5 @@
 package racingcar.domain.car;
 
-import racingcar.strategy.MoveStrategy;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -17,19 +15,9 @@ public class Cars {
     }
 
     private void validate() {
-        cars.forEach(car -> {
-            long numberOfSameNameCars = cars.stream()
-                    .filter(car::equals)
-                    .count();
-
-            if (isMoreThanTwo(numberOfSameNameCars)) {
-                throw new IllegalArgumentException(DUPLICATED_NAME_EXCEPTION_MESSAGE);
-            }
-        });
-    }
-
-    private boolean isMoreThanTwo(long sameNameCars) {
-        return sameNameCars >= 2;
+        if (cars.size() != new HashSet<>(cars).size()) {
+            throw new IllegalArgumentException(DUPLICATED_NAME_EXCEPTION_MESSAGE);
+        }
     }
 
     public List<String> getMaxPositionCarNames() {
@@ -44,8 +32,10 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public void moveEachCar(MoveStrategy moveStrategy) {
-        cars.forEach(moveStrategy::move);
+    public Cars moveEachCar(Random random) {
+        List<Car> cars = new ArrayList<>();
+        this.cars.forEach(car -> cars.add(car.move(random.nextInt())));
+        return new Cars(cars);
     }
 
     @Override
