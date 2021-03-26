@@ -16,24 +16,37 @@
   
 ## 🚬 클래스와 메서드?
 - Application
+  
 - Receiver
   - receiveName
   - receiveNumber
+  
 - Printer
-  - printMessage
+  - printProgress
+  - printWinner
+  - printGeneralMessage
+  - printExceptionMessage
+  - printMessages
+  
 - GamePlayer
   - run
-  - judgeToMove
-  - makeArrayAfterGettingName
-  - makeCountAfterGettingNumber
+  - judgeAndMove
+  - inputNames
+  - inputNumber
+  - makeCarList
   - launchAllRound
-  - checkWhoIsWinner
+  
 - Generator
   - generateRandomNumber
+  
 - Car
   - getPosition
   - getName
   - moveForward
+  - isMaxNumber
+  - isOverMaxNumber
+  getProgressWithSymbol
+    
 - Validate
   - validateName(s)
     - inputNothing(s)
@@ -43,8 +56,16 @@
     - endWithComma(s)
     - over5Characters(s)
     - inputSameName(s))
-  - validateNumber(s)
+    - validateNumber(s)
+  
+- Winner
+  - makeWinnerToString
+  - checkWhoIsWinner
+  - initWinner
+  
 - Message
+  - selectMessageFromGeneral
+  - selectMessageFromException
 
 
 ## 🚀 기능 요구사항

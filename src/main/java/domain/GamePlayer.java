@@ -34,6 +34,13 @@ public class GamePlayer {
         return makeCarList(names);
     }
 
+    int inputNumber() {
+        String messageCode = Message.GeneralMessages.INPUT_COUNT.getMessage();
+        printer.printMessages(messageCode);
+
+        return receiver.receiveNumber();
+    }
+
     ArrayList<Car> makeCarList(List<String> names) {
         ArrayList<Car> cars = new ArrayList<>();
 
@@ -41,13 +48,6 @@ public class GamePlayer {
             cars.add(new Car(names.get(i)));
 
         return cars;
-    }
-
-    int inputNumber() {
-        String messageCode = Message.GeneralMessages.INPUT_COUNT.getMessage();
-        printer.printMessages(messageCode);
-
-        return receiver.receiveNumber();
     }
 
     void launchAllRound(ArrayList<Car> cars, int countRound) {
