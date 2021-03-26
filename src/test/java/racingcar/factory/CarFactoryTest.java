@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,18 +40,6 @@ class CarFactoryTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> CarFactory.createCars(carNames))
                 .withMessage("이름은 공백일 수 없습니다.");
-    }
-
-    @DisplayName("콤마만 존재하는 비정상적인 입력")
-    @Test
-    void 콤마만_존재하는_비정상적인_입력() {
-        //given
-        String carNames = ",,,";
-
-        //when then
-        assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> CarFactory.createCars(carNames))
-                .withMessage("콤마만 입력할 수는 없습니다.");
     }
 
     @DisplayName("같은 이름 입력시 예외")
