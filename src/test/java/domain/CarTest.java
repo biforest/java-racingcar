@@ -4,15 +4,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
-    Car car;
     private final String DEFAULT_NAME = "Kim";
+    Car car;
 
     @BeforeEach
-    void setUp() {
-        car = new Car(DEFAULT_NAME);
+    void setUp() { car = new Car(DEFAULT_NAME);
     }
 
     @Test

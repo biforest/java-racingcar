@@ -36,23 +36,6 @@ class GamePlayerTest {
         assertThat(cars).isEqualTo(gameplayer.checkWhoIsWinner(carArray));
     }
 
-    @Test
-    void makeArrayAfterGettingNameTest() {
-        String input = "kim,park,song";
-        InputStream stdin = System.in;
-
-        try {
-            System.setIn(new ByteArrayInputStream(input.getBytes()));
-            gameplayer = new GamePlayer();
-            Car[] cars = gameplayer.makeArray();
-            assertThat("kim").isEqualTo(cars[0].getName());
-            assertThat("park").isEqualTo(cars[1].getName());
-            assertThat("song").isEqualTo(cars[2].getName());
-        } finally {
-            System.setIn(stdin);
-        }
-    }
-
 
     @Test
     void makeCountAfterGettingNumberTest() {
@@ -63,7 +46,7 @@ class GamePlayerTest {
         try {
             System.setIn(new ByteArrayInputStream(input.getBytes()));
             gameplayer = new GamePlayer();
-            result = gameplayer.makeCount();
+            result = gameplayer.receiveRepeatCount();
         } finally {
             System.setIn(stdin);
         }

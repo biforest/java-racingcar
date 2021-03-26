@@ -11,24 +11,14 @@ public class GamePlayer {
     private final Printer printer = new Printer();
     private final Receiver receiver = new Receiver();
     private final Generator generator= new Generator();
+    private final CarManager carManager = new CarManager();
 
     public void judgeToMove(Car car, int randomNumber) {
         if (randomNumber >= WINNER_CONDITION)
             car.moveForward();
     }
 
-    public Car[] makeArray() {
-        printer.printGeneralMessage("INPUT_NAMEOFCAR");
-        String[] listOfName = receiver.receiveName();
-
-        Car[] cars = new Car[listOfName.length];
-        for (int i = 0; i < listOfName.length; i++)
-            cars[i] = new Car(listOfName[i]);
-
-        return cars;
-    }
-
-    public int makeCount() {
+    public int receiveRepeatCount() {
         printer.printGeneralMessage("INPUT_COUNT");
         return receiver.receiveNumber();
     }
@@ -69,8 +59,9 @@ public class GamePlayer {
     }
 
     public void run() {
-        Car[] cars = makeArray();
-        int countRound = makeCount();
+        printer.printGeneralMessage("INPUT_NAMEOFCAR");
+        Car[] cars = carManager.produceCar();
+        int countRound = receiveRepeatCount();
 
         printer.printGeneralMessage("OPERATION_RESULT");
         launchAllRound(cars, countRound);
