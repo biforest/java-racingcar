@@ -27,7 +27,7 @@ public class Car {
     }
 
     public Car move(MoveStrategy moveStrategy) {
-        int nextPosition = position.getValue();
+        int nextPosition = position.getPosition();
         if (moveStrategy.isMove()) {
             nextPosition++;
         }
@@ -35,7 +35,7 @@ public class Car {
     }
 
     public boolean isWinnerPosition(int winnerPosition) {
-        return position.getValue() == winnerPosition;
+        return position.getPosition() == winnerPosition;
     }
 
     @Override

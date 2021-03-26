@@ -49,8 +49,8 @@ public class Printer {
     }
 
     private void printCarState(Car car) {
-        String name = car.getName().getValue();
-        int position = car.getPosition().getValue();
+        String name = car.getName().getName();
+        int position = car.getPosition().getPosition();
         System.out.println(name + NAME_POSITION_SEPARATOR + POSITION_STATE_CHAR.repeat(position));
     }
 }

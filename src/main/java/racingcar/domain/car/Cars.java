@@ -26,11 +26,11 @@ public class Cars {
                 .max(Comparator.comparing(Car::getPosition))
                 .orElseThrow()
                 .getPosition()
-                .getValue();
+                .getPosition();
 
         return cars.stream()
                 .filter(car -> car.isWinnerPosition(maxPosition))
-                .map(car -> car.getName().getValue())
+                .map(car -> car.getName().getName())
                 .collect(Collectors.toList());
     }
 

@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
-import racingcar.domain.car.Car;
 import org.junit.jupiter.api.Test;
+import racingcar.strategy.ThresholdStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
@@ -12,11 +12,11 @@ class CarTest {
     void move() {
         //given
         Car car = new Car("name");
-        int prev = car.getPosition();
+        int prev = car.getPosition().getPosition();
 
         //when
-        car.move();
-        int current = car.getPosition();
+        car.move(new ThresholdStrategy(4, 4));
+        int current = car.getPosition().getPosition();
 
         //then
         assertThat(current).isEqualTo(prev + 1);
@@ -26,9 +26,9 @@ class CarTest {
     void 차의_이름과_위치상황을_출력_포맷에_맞게_String으로_변환한다() {
         //given
         Car car = new Car("name");
-        car.move();
-        car.move();
-        car.move();
+        car.move(new ThresholdStrategy(4, 4));
+        car.move(new ThresholdStrategy(4, 4));
+        car.move(new ThresholdStrategy(4, 4));
 
         //when
         String actual = car.toString();

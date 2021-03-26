@@ -7,7 +7,7 @@ public class Position implements Comparable<Position> {
         this.position = position;
     }
 
-    public int getValue() {
+    public int getPosition() {
         return position;
     }
 
