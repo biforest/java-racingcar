@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.strategy.ThresholdStrategy;
 
@@ -8,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class CarTest {
 
+    @DisplayName("Car 객체 앞으로 전진하는 테스트")
     @Test
     void move() {
         //given
@@ -20,21 +22,6 @@ class CarTest {
 
         //then
         assertThat(current).isEqualTo(prev + 1);
-    }
-
-    @Test
-    void 차의_이름과_위치상황을_출력_포맷에_맞게_String으로_변환한다() {
-        //given
-        Car car = new Car("name");
-        car.move(new ThresholdStrategy(4, 4));
-        car.move(new ThresholdStrategy(4, 4));
-        car.move(new ThresholdStrategy(4, 4));
-
-        //when
-        String actual = car.toString();
-
-        //then
-        assertThat(actual).isEqualTo("name : ---");
     }
 
     @Test
