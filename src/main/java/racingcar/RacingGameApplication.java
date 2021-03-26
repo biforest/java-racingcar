@@ -50,7 +50,7 @@ public class RacingGameApplication {
             return CarFactory.createCars(receiver.receiveCarNames());
         } catch (IllegalArgumentException e) {
             printer.printExceptionMessage(e);
-            return CarFactory.createCars(receiver.receiveCarNames());
+            return createCars();
         }
     }
 
@@ -59,7 +59,7 @@ public class RacingGameApplication {
             return new Round(receiver.receiveNumberOfRounds());
         } catch (IllegalArgumentException e) {
             printer.printExceptionMessage(e);
-            return new Round(receiver.receiveNumberOfRounds());
+            return createRound();
         }
     }
 
