@@ -6,19 +6,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static final String DUPLICATED_NAME_EXCEPTION_MESSAGE = "중복되는 이름의 차를 입력하실 수 없습니다.";
-
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = new ArrayList<>(cars);
-        validate();
-    }
-
-    private void validate() {
-        if (cars.size() != new HashSet<>(cars).size()) {
-            throw new IllegalArgumentException(DUPLICATED_NAME_EXCEPTION_MESSAGE);
-        }
     }
 
     public List<String> getMaxPositionCarNames() {
