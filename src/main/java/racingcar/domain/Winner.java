@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class Winner {
 
@@ -15,9 +16,6 @@ public class Winner {
 
     @Override
     public String toString() {
-        StringJoiner stringJoiner = new StringJoiner(DELIMITER);
-        winnerNames.forEach(stringJoiner::add);
-        return stringJoiner.toString();
+        return String.join(DELIMITER, winnerNames);
     }
-
 }
