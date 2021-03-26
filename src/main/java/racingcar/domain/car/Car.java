@@ -1,35 +1,41 @@
 package racingcar.domain.car;
 
+import racingcar.strategy.MoveStrategy;
+
 import java.util.Objects;
 
 public class Car {
     private final Name name;
-    private int position;
+    private final Position position;
 
     public Car(String name) {
         this.name = new Name(name);
-        this.position = 0;
+        this.position = new Position(0);
     }
 
-    public String getName() {
-        return name.getName();
+    private Car(Name name, int position) {
+        this.name = name;
+        this.position = new Position(position);
     }
 
-    public int getPosition() {
+    public Name getName() {
+        return name;
+    }
+
+    public Position getPosition() {
         return position;
     }
 
-    public void move() {
-        position = position + 1;
+    public Car move(MoveStrategy moveStrategy) {
+        int nextPosition = position.getValue();
+        if (moveStrategy.isMove()) {
+            nextPosition++;
+        }
+        return new Car(name, nextPosition);
     }
 
     public boolean isWinnerPosition(int winnerPosition) {
-        return position == winnerPosition;
-    }
-
-    @Override
-    public String toString() {
-        return name.getName() + " : " + "-".repeat(Math.max(0, position));
+        return position.getValue() == winnerPosition;
     }
 
     @Override
