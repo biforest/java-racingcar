@@ -30,9 +30,8 @@ public class InputExceptionHandler extends ReceiverFilter {
         } catch (InputMismatchException e) {
             printer.printInputMismatchExceptionMessage();
             receiver.clearBuffer();
-        } catch (IllegalArgumentException e) {
-            printer.printExceptionMessage(e);
         }
+
         return new InputExceptionHandler((InputValidator) receiver, printer).receiveNumberOfRounds();
     }
 }
