@@ -17,7 +17,7 @@ class CarTest {
         int prev = car.getPosition().getPosition();
 
         //when
-        car.move(new ThresholdStrategy(4, 4));
+        car = car.move(new ThresholdStrategy(4, 4));
         int current = car.getPosition().getPosition();
 
         //then
@@ -38,5 +38,18 @@ class CarTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new Car(""))
                 .withMessage("이름은 공백일 수 없습니다.");
+    }
+
+    @DisplayName("Car 객체의 불변성")
+    @Test
+    void immutabilityTest() {
+        //given
+        Car car = new Car("name");
+
+        //when
+        Car notMovingCar = car.move(new ThresholdStrategy(10, 4));
+
+        //then
+        assertThat(car).isNotEqualTo(notMovingCar);
     }
 }
