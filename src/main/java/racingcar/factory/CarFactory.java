@@ -13,11 +13,13 @@ public class CarFactory {
 
     public static List<Car> createCars(String carNames) {
         List<String> names = Arrays.asList(carNames.split(DELIMITER));
-        validate(names);
 
-        return names.stream()
+        List<Car> cars = names.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+
+        validate(names);
+        return cars;
     }
 
     private static void validate(List<String> names) {
