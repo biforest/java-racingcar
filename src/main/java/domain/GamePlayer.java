@@ -22,14 +22,15 @@ public class GamePlayer {
     }
 
     void judgeAndMove(Car car, int randomNumber) {
-        if (randomNumber >= WINNER_CONDITION)
+        if (randomNumber >= WINNER_CONDITION) {
             car.moveForward();
+        }
     }
 
-    ArrayList<Car> inputNames() {
+    List<Car> inputNames() {
         String messageCode = Message.GeneralMessages.INPUT_NAMEOFCAR.getMessage();
         printer.printMessages(messageCode);
-        ArrayList<String> names = new ArrayList<>(Arrays.asList(receiver.receiveName()));
+        List<String> names = new ArrayList<>(Arrays.asList(receiver.receiveName()));
 
         return makeCarList(names);
     }
@@ -41,8 +42,8 @@ public class GamePlayer {
         return receiver.receiveNumber();
     }
 
-    ArrayList<Car> makeCarList(List<String> names) {
-        ArrayList<Car> cars = new ArrayList<>();
+    List<Car> makeCarList(List<String> names) {
+        List<Car> cars = new ArrayList<>();
 
         for (int i = 0; i < names.size(); i++)
             cars.add(new Car(names.get(i)));

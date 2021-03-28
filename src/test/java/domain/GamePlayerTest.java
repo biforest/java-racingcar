@@ -46,7 +46,7 @@ class GamePlayerTest {
         try {
             System.setIn(new ByteArrayInputStream(input.getBytes()));
             gameplayer = new GamePlayer();
-            ArrayList<Car> cars = gameplayer.inputNames();
+            List<Car> cars = gameplayer.inputNames();
             assertThat("kim").isEqualTo(cars.get(0).getName());
             assertThat("park").isEqualTo(cars.get(1).getName());
             assertThat("song").isEqualTo(cars.get(2).getName());
