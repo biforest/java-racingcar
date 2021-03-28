@@ -9,9 +9,9 @@ import java.util.regex.Pattern;
 
 public class Validator {
     private static final int MAX_NAME_SIZE = 5;
-    private static final String valiNumber = "^[0-9]+$";
-    private static final String commaInARow = "^.*(,,).*+$";
-    private static final String characterOTN = "^[a-zA-Z,]+$";
+    private static final String VALID_NUMBER = "^[0-9]+$";
+    private static final String COMMA_IN_ROW = "^.*(,,).*+$";
+    private static final String CHARACTER = "^[a-zA-Z,]+$";
     private static final Character COMMA = ',';
     private static final String NOTHING = "";
 
