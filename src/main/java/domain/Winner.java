@@ -7,8 +7,8 @@ public class Winner {
     public static String makeWinnerToString(List<Car> cars) {
         StringBuilder winner = new StringBuilder(cars.get(0).getName());
 
-        if(cars.size() > 1) {
-            for(int i = 1;i<cars.size();i++) {
+        if (cars.size() > 1) {
+            for (int i = 1; i < cars.size(); i++) {
                 winner.append(", ").append(cars.get(i).getName());
             }
         }
