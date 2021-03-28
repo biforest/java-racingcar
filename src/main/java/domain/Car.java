@@ -39,6 +39,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + COLON + DASH.repeat(position);
+        return name + COLON + DASH.repeat(position) + '\n';
     }
 }

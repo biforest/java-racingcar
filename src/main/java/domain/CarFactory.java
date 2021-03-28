@@ -11,14 +11,14 @@ public class CarFactory {
     public CarFactory() {
     }
 
-    public List<Car> createCars(String input) {
+    public Cars createCars(String input) {
         String[] carNames = splitCarNames(input);
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
 
-        return cars;
+        return new Cars(cars);
     }
 
     private String[] splitCarNames(String input) {

@@ -20,7 +20,7 @@ class RacingCarGameTest {
         cars.add(new Car("bean"));
         cars.add(new Car("ceci"));
 
-        racingCarGame = new RacingCarGame(cars);
+        racingCarGame = new RacingCarGame(new Cars(cars));
     }
 
     @Test
@@ -46,10 +46,10 @@ class RacingCarGameTest {
 
         // when
         racingCarGame.chooseWinners();
-        List<Car> winners = racingCarGame.getWinners();
+        Cars winners = racingCarGame.getWinners();
 
         // then
-        assertThat(winners.get(0).getName()).isEqualTo("bean");
-        assertThat(winners.get(1).getName()).isEqualTo("ceci");
+        assertThat(winners.getCars().get(0).getName()).isEqualTo("bean");
+        assertThat(winners.getCars().get(1).getName()).isEqualTo("ceci");
     }
 }

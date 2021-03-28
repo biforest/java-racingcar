@@ -1,7 +1,5 @@
-import java.util.List;
-
-import domain.Car;
 import domain.CarFactory;
+import domain.Cars;
 import domain.MoveStrategy;
 import domain.RacingCarGame;
 import domain.RandomMoveStrategy;
@@ -24,7 +22,7 @@ public class Application {
             printer.printCurrentPositions(racingCarGame.getCars());
         }
 
-        List<Car> winners = racingCarGame.chooseWinners();
+        Cars winners = racingCarGame.chooseWinners();
         printer.printWinners(winners);
     }
 }
