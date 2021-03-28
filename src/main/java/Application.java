@@ -14,10 +14,10 @@ public class Application {
         Printer printer = new Printer();
 
         CarFactory carFactory = new CarFactory();
-        RacingCarGame racingCarGame = new RacingCarGame(carFactory.createCars(receiver.getCarNames()));
+        RacingCarGame racingCarGame = new RacingCarGame(carFactory.createCars(receiver.receiveCarNames()));
+        int round = receiver.receiveRound();
 
         System.out.println(Printer.RESULT_START_MESSAGE);
-        int round = receiver.getRound();
         MoveStrategy moveStrategy = new RandomMoveStrategy();
         for (int r = 0; r < round; r++) {
             racingCarGame.proceedOneRound(moveStrategy);

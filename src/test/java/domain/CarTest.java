@@ -4,10 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import domain.exception.NotBlankException;
-
 public class CarTest {
-
     private Car car;
 
     @Test
@@ -39,7 +36,7 @@ public class CarTest {
         String name = " ";
 
         assertThatThrownBy(() -> new Car(name))
-            .isInstanceOf(NotBlankException.class)
+            .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("공백으로만 이루어진 이름을 생성할 수 없습니다.");
     }
 

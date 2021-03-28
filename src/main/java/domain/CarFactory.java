@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
-    public static final String COMMA = ",";
-    public static final String BLANK = " ";
+    private static final String COMMA = ",";
+    private static final String BLANK = " ";
+    private static final String EMPTY_STRING = "";
 
     public CarFactory() {
     }
@@ -21,7 +22,14 @@ public class CarFactory {
     }
 
     private String[] splitCarNames(String input) {
-        String inputWithoutBlank = input.replaceAll(BLANK, "");
+        validateInput(input);
+        String inputWithoutBlank = input.replaceAll(BLANK, EMPTY_STRING);
         return inputWithoutBlank.split(COMMA);
+    }
+
+    private void validateInput(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("빈 문자열이 입력되었습니다.");
+        }
     }
 }
