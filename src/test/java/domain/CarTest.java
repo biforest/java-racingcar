@@ -11,14 +11,27 @@ public class CarTest {
     private Car car;
 
     @Test
-    public void moveForward() throws Exception {
+    public void 차가_전진한다() throws Exception {
         String name = "green";
+        MoveStrategy moveStrategy = new AlwaysMoveStrategy();
 
         car = new Car(name);
-        car.moveForward();
-        car.moveForward();
+        car.moveForward(moveStrategy);
+        car.moveForward(moveStrategy);
 
         assertThat(car.getPosition()).isEqualTo(2);
+    }
+
+    @Test
+    public void 차가_정지한다() throws Exception {
+        String name = "green";
+        MoveStrategy moveStrategy = new AlwaysStopStrategy();
+
+        car = new Car(name);
+        car.moveForward(moveStrategy);
+        car.moveForward(moveStrategy);
+
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test

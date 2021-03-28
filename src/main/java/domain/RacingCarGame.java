@@ -3,13 +3,8 @@ package domain;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import utils.RandomUtils;
 
 public class RacingCarGame {
-    private static final int MIN_POWER = 4;
-
     private final List<Car> cars;
     private List<Car> winners;
 
@@ -17,19 +12,14 @@ public class RacingCarGame {
         this.cars = cars;
     }
 
-    public void proceedOneRound() {
-        IntStream.range(0, cars.size()).forEach(this::movePosition);
-    }
-
-    private void movePosition(int idx) {
-        int randomValue = makeRandomValue();
-        if (randomValue >= MIN_POWER) {
-            cars.get(idx).moveForward();
+    public void proceedOneRound(MoveStrategy moveStrategy) {
+        for (int i = 0; i < cars.size(); i++) {
+            movePosition(i, moveStrategy);
         }
     }
 
-    private int makeRandomValue() {
-        return RandomUtils.nextInt(0, 9);
+    private void movePosition(int idx, MoveStrategy moveStrategy) {
+        cars.get(idx).moveForward(moveStrategy);
     }
 
     public List<Car> chooseWinners() {

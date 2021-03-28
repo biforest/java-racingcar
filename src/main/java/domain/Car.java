@@ -14,8 +14,10 @@ public class Car implements Comparable<Car> {
         validateName();
     }
 
-    public void moveForward() {
-        position += 1;
+    public void moveForward(MoveStrategy moveStrategy) {
+        if (moveStrategy.canMove()) {
+            position += 1;
+        }
     }
 
     private void validateName() {
