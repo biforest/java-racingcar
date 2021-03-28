@@ -21,10 +21,14 @@ public class GamePlayer {
         this.generator = new Generator();
     }
 
-    void judgeAndMove(Car car, int randomNumber) {
-        if (randomNumber >= WINNER_CONDITION) {
+    void moveAfterJudgement(Car car, int randomNumber) {
+        if (judgeToMove(randomNumber)) {
             car.moveForward();
         }
+    }
+
+    private boolean judgeToMove(int randomNumber) {
+        return randomNumber >= WINNER_CONDITION;
     }
 
     List<Car> inputNames() {
@@ -56,7 +60,7 @@ public class GamePlayer {
 
         for (int i = 0; i < countRound; i++) {
             for (Car car : cars) {
-                judgeAndMove(car, generator.generateRandomNumber());
+                moveAfterJudgement(car, generator.generateRandomNumber());
                 printer.printProgress(car.getName(), car.getProgressWithSymbol());
             }
             printer.printMessages(messageCode);
