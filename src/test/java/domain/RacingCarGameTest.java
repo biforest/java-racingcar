@@ -32,6 +32,6 @@ class RacingCarGameTest {
         racingCarGame.proceedRounds();
 
         //when
-        racingCarGame.printWinners();
+        racingCarGame.chooseWinners();
     }
 }
