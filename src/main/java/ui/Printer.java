@@ -7,17 +7,10 @@ import domain.Car;
 public class Printer {
     public static final String RESULT_START_MESSAGE = "\n실행 결과";
     private static final String RESULT_END_MESSAGE = "가 최종 우승했습니다.";
-    private static final String COLON = " : ";
-    private static final String DASH = "-";
 
     public void printCurrentPositions(List<Car> cars) {
         for (Car car : cars) {
-            System.out.print(car.getName() + COLON);
-
-            for (int j = 0; j < car.getPosition(); j++) {
-                System.out.print(DASH);
-            }
-            System.out.println();
+            System.out.println(car.toString());
         }
         System.out.println();
     }

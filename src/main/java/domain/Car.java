@@ -3,6 +3,9 @@ package domain;
 import domain.exception.NotBlankException;
 
 public class Car implements Comparable<Car> {
+    private static final String COLON = " : ";
+    private static final String DASH = "-";
+
     private final String name;
     private int position = 0;
 
@@ -31,6 +34,11 @@ public class Car implements Comparable<Car> {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return name + COLON + DASH.repeat(position);
     }
 
     @Override
