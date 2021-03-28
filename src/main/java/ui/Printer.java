@@ -6,11 +6,11 @@ import domain.Car;
 
 public class Printer {
     public static final String RESULT_START_MESSAGE = "\n실행 결과";
-    public static final String RESULT_END_MESSAGE = "가 최종 우승했습니다.";
-    public static final String COLON = " : ";
-    public static final String DASH = "-";
+    private static final String RESULT_END_MESSAGE = "가 최종 우승했습니다.";
+    private static final String COLON = " : ";
+    private static final String DASH = "-";
 
-    public static void printCurrentPositions(List<Car> cars) {
+    public void printCurrentPositions(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + COLON);
 

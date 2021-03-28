@@ -12,9 +12,9 @@ public class CarFactoryTest {
 
     @Test
     public void 차를_생성한다() throws Exception {
-        carFactory = new CarFactory(input);
+        carFactory = new CarFactory();
 
-        List<Car> cars = carFactory.getCars();
+        List<Car> cars = carFactory.createCars(input);
 
         Assertions.assertThat(cars.get(0).getName()).isEqualTo("lee");
         Assertions.assertThat(cars.get(1).getName()).isEqualTo("chan");

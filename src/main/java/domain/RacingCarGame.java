@@ -3,42 +3,33 @@ package domain;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-import ui.Printer;
 import utils.RandomUtils;
 
 public class RacingCarGame {
+    private static final int MIN_POWER = 4;
+
     private final List<Car> cars;
-    private final int round;
     private List<Car> winners;
 
-    public RacingCarGame(List<Car> cars, int round) {
+    public RacingCarGame(List<Car> cars) {
         this.cars = cars;
-        this.round = round;
     }
 
-    private int makeRandomValue() {
-        return RandomUtils.nextInt(0, 9);
+    public void proceedOneRound() {
+        IntStream.range(0, cars.size()).forEach(this::movePosition);
     }
 
     private void movePosition(int idx) {
         int randomValue = makeRandomValue();
-        if (randomValue >= 4) {
+        if (randomValue >= MIN_POWER) {
             cars.get(idx).moveForward();
         }
     }
 
-    private void proceedOneRound() {
-        for (int idx = 0; idx < cars.size(); idx++) {
-            movePosition(idx);
-        }
-    }
-
-    public void proceedRounds() {
-        for (int r = 0; r < round; r++) {
-            proceedOneRound();
-            Printer.printCurrentPositions(cars);
-        }
+    private int makeRandomValue() {
+        return RandomUtils.nextInt(0, 9);
     }
 
     public List<Car> chooseWinners() {
@@ -50,5 +41,13 @@ public class RacingCarGame {
         return winners = cars.stream()
             .filter(car -> car.getPosition() == maxPosition)
             .collect(Collectors.toList());
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public List<Car> getWinners() {
+        return winners;
     }
 }
