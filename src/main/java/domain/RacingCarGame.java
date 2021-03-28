@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import utils.RandomUtils;
 
@@ -10,6 +11,7 @@ public class RacingCarGame {
     private static final String RESULT_END_MESSAGE = "가 최종 우승했습니다.";
     private static final String COLON = " : ";
     private static final String DASH = "-";
+
     private final List<Car> cars;
     private final int round;
 
@@ -18,40 +20,35 @@ public class RacingCarGame {
         this.round = round;
     }
 
-    private int makeRandomValue() {
-        return RandomUtils.nextInt(0, 9);
-    }
-
     private void movePosition(int idx) {
-        int randomValue = makeRandomValue();
+        int randomValue = RandomUtils.generateNumber();
+
         if (randomValue >= 4) {
             cars.get(idx).moveForward();
         }
     }
 
     private void proceedOneRound() {
-        for (int idx = 0; idx < cars.size(); idx++) {
-            movePosition(idx);
-        }
+        IntStream.range(0, cars.size()).forEach(this::movePosition);
     }
 
     public void proceedRounds() {
         System.out.println(RESULT_START_MESSAGE);
-        for (int r = 0; r < round; r++) {
+
+        IntStream.range(0, round).forEach(r -> {
             proceedOneRound();
             printCurrentPositions();
-        }
+        });
     }
 
     private void printCurrentPositions() {
         for (Car car : cars) {
             System.out.print(car.getName() + COLON);
 
-            for (int j = 0; j < car.getPosition(); j++) {
-                System.out.print(DASH);
-            }
+            IntStream.range(0, car.getPosition()).mapToObj(j -> DASH).forEach(System.out::print);
             System.out.println();
         }
+
         System.out.println();
     }
 
@@ -67,6 +64,7 @@ public class RacingCarGame {
             }
             System.out.print(", " + cars.get(i).getName());
         }
+
         System.out.println(RESULT_END_MESSAGE);
     }
 }
