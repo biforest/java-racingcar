@@ -15,7 +15,7 @@ public class Validator {
     private static final Character COMMA = ',';
     private static final String NOTHING = "";
 
-    Printer printer;
+    private final Printer printer;
 
     public Validator() {
         printer = new Printer();
@@ -32,7 +32,7 @@ public class Validator {
     }
 
     public boolean isValidNumber(String s) {
-        return s.matches(valiNumber);
+        return s.matches(VALID_NUMBER);
     }
 
     public boolean inputNothing(String s) {
@@ -48,7 +48,7 @@ public class Validator {
     public boolean inputCommaInARow(String s) {
         String messageCode = Message.ExceptionMessages.INPUT_COMMA_IN_A_ROW.getMessage();
 
-        if (Pattern.matches(commaInARow, s)) {
+        if (Pattern.matches(COMMA_IN_ROW, s)) {
             printer.printMessages(messageCode);
             return false;
         }
@@ -78,7 +78,7 @@ public class Validator {
     public boolean inputCharactersOtherThanName(String s) {
         String messageCode = Message.ExceptionMessages.INPUT_CHARACTERS_OTHER_THAN_NAME.getMessage();
 
-        if (!Pattern.matches(characterOTN, s)) {
+        if (!Pattern.matches(CHARACTER, s)) {
             printer.printMessages(messageCode);
             return false;
         }
