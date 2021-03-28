@@ -49,13 +49,14 @@ public class GamePlayer {
     List<Car> makeCarList(List<String> names) {
         List<Car> cars = new ArrayList<>();
 
-        for (int i = 0; i < names.size(); i++)
+        for (int i = 0; i < names.size(); i++) {
             cars.add(new Car(names.get(i)));
+        }
 
         return cars;
     }
 
-    void launchAllRound(ArrayList<Car> cars, int countRound) {
+    void launchAllRound(List<Car> cars, int countRound) {
         String messageCode = Message.GeneralMessages.DEFAULT_SPACE.getMessage();
 
         for (int i = 0; i < countRound; i++) {
@@ -69,13 +70,13 @@ public class GamePlayer {
 
     public void run() {
         String messageCode = Message.GeneralMessages.OPERATION_RESULT.getMessage();
-        ArrayList<Car> cars = inputNames();
+        List<Car> cars = inputNames();
         int countRound = inputNumber();
 
         printer.printMessages(messageCode);
         launchAllRound(cars, countRound);
 
-        ArrayList<Car> winner = Winner.checkWhoIsWinner(cars);
+        List<Car> winner = Winner.checkWhoIsWinner(cars);
         printer.printWinner(Winner.makeWinnerToString(winner));
     }
 }

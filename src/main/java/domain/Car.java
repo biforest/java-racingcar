@@ -30,8 +30,9 @@ public class Car {
 
     public String getProgressWithSymbol() {
         String progress = "";
-        for(int i = 0;i < this.position;i++)
+        for(int i = 0;i < this.position;i++) {
             progress += "-";
+        }
 
         return progress;
     }
