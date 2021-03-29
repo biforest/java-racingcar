@@ -45,8 +45,7 @@ class RacingCarGameTest {
         cars.get(2).moveForward(alwaysMoveStrategy);
 
         // when
-        racingCarGame.chooseWinners();
-        Cars winners = racingCarGame.getWinners();
+        Cars winners = racingCarGame.chooseWinners();
 
         // then
         assertThat(winners.getCars().get(0).getName()).isEqualTo("bean");

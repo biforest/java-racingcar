@@ -1,8 +1,7 @@
 package domain;
 
 public class Car {
-    private static final String COLON = " : ";
-    private static final String DASH = "-";
+    private static final int DISTANCE = 1;
     private static final int NAME_LENGTH_BOUND = 5;
 
     private final String name;
@@ -15,7 +14,7 @@ public class Car {
 
     public void moveForward(MoveStrategy moveStrategy) {
         if (moveStrategy.canMove()) {
-            position += 1;
+            position += DISTANCE;
         }
     }
 
@@ -29,16 +28,15 @@ public class Car {
         }
     }
 
+    public boolean isSameWithPosition(int position) {
+        return this.position == position;
+    }
+
     public String getName() {
         return name;
     }
 
     public int getPosition() {
         return position;
-    }
-
-    @Override
-    public String toString() {
-        return name + COLON + DASH.repeat(position) + '\n';
     }
 }

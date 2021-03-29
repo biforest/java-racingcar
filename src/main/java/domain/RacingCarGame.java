@@ -2,7 +2,6 @@ package domain;
 
 public class RacingCarGame {
     private final Cars cars;
-    private Cars winners;
 
     public RacingCarGame(Cars cars) {
         this.cars = cars;
@@ -14,14 +13,10 @@ public class RacingCarGame {
 
     public Cars chooseWinners() {
         int maxPosition = cars.getMaxPosition();
-        return winners = new Cars(cars.findWinners(maxPosition));
+        return new Cars(cars.findWinners(maxPosition));
     }
 
     public Cars getCars() {
         return cars;
-    }
-
-    public Cars getWinners() {
-        return winners;
     }
 }
