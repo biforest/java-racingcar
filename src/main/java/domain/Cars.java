@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static final String COMMA = ", ";
-
     private List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -32,31 +30,12 @@ public class Cars {
 
     public List<Car> findWinners(int maxPosition) {
         return cars.stream()
-            .filter(car -> car.getPosition() == maxPosition)
+            .filter(car -> car.isSameWithPosition(maxPosition))
             .collect(Collectors.toList());
     }
 
-    public String toStringCurrentPositions() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        return stringBuilder.append(cars.stream()
-            .map(Car::toString)
-            .collect(Collectors.joining()))
-            .toString();
-    }
-
-    public String toStringWinners() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append(cars.get(0).getName());
-        if (cars.size() == 1) {
-            return stringBuilder.toString();
-        }
-
-        for (int i = 1; i < cars.size(); i++) {
-            stringBuilder.append(COMMA + cars.get(i).getName());
-        }
-        return stringBuilder.toString();
+    public int size() {
+        return cars.size();
     }
 
     public List<Car> getCars() {
