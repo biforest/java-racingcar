@@ -68,3 +68,30 @@ public class Car {
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blob/master/LICENSE) licensed.
+
+<br>
+
+### 기능 순서
+- 입력
+  - 자동차 이름
+  - 몇 번 이동할 것인지 시도할 횟수
+- 시도 횟수만큼 반복
+  - random 값 구하고 전진/멈춤
+  - 출력: 한 판에 대한 실행 결과
+- 출력: 우승자(1명 이상)
+
+### 기능 목록
+- [x] 입력 - 자동차 이름, 횟수
+  - [x] 자동차 이름 글자수 예외
+- [x] 자동차: 이름, 위치
+- [x] 경주 게임
+  - [x] 각 자동차의 0-9 사이 랜덤값 구하기
+  - [x] 자동차들 위치 이동 - 전진 or 멈춤
+  - [x] 실행 - 결과 출력
+- [x] 최종 우승자 구하기 및 출력
+
+### 예외
+
+- 자동차 이름
+  - 5글자 이하만 가능
+  - 공백일 경우
